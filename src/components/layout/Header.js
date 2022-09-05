@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Logo from './partials/Logo';
+import Title from '../elements/Title'
 
 const propTypes = {
   navPosition: PropTypes.string,
+  hideTitle: PropTypes.bool,
   hideNav: PropTypes.bool,
   hideSignin: PropTypes.bool,
   bottomOuterDivider: PropTypes.bool,
@@ -14,6 +16,7 @@ const propTypes = {
 
 const defaultProps = {
   navPosition: '',
+  hideTitle: false,
   hideNav: false,
   hideSignin: false,
   bottomOuterDivider: false,
@@ -23,6 +26,7 @@ const defaultProps = {
 const Header = ({
   className,
   navPosition,
+  hideTitle,
   hideNav,
   hideSignin,
   bottomOuterDivider,
@@ -86,6 +90,9 @@ const Header = ({
             bottomDivider && 'has-bottom-divider'
           )}>
           <Logo />
+          {!hideTitle &&
+            <Title />
+          }
           {!hideNav &&
             <>
               <button
@@ -120,7 +127,7 @@ const Header = ({
                       className="list-reset header-nav-right"
                     >
                       <li>
-                        <Link to="#0" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Subscribe</Link>
+                        <Link to="#cta" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Subscribe</Link>
                       </li>
                     </ul>}
                 </div>
