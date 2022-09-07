@@ -41,11 +41,10 @@ const Footer = ({
           )}>
           <div className="footer-top space-between text-xxs">
             <Logo />
-            <FooterSocial />
           </div>
           <div className="footer-bottom space-between text-xxs invert-order-desktop">
             <FooterNav />
-            <div className="footer-copyright">Made by <a href="https://matteolibrizzi.com">Matteo Librizzi</a>. All right reserved</div>
+            <div className="footer-copyright">Made by <a href="https://www.matteolibrizzi.com">Matteo Librizzi</a>. All right reserved</div>
           </div>
         </div>
       </div>
