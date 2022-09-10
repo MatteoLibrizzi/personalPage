@@ -1,27 +1,47 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b7bb0b059156e09294946a5dc0e6b2e8",
+    "revision": "3252b3e43d154a3a473308ede1a622da",
     "url": "/index.html"
   },
   {
-    "revision": "df059223836c584a7703",
+    "revision": "aed33d3aa506850563af",
     "url": "/static/css/main.bba39b76.chunk.css"
   },
   {
-    "revision": "da7b648fa666680bb611",
-    "url": "/static/js/2.a9324f60.chunk.js"
+    "revision": "7b78210ae5fe43fcf6b2",
+    "url": "/static/js/2.15f94104.chunk.js"
   },
   {
     "revision": "117d65892edc8adcd29d4a0d57b5a80a",
-    "url": "/static/js/2.a9324f60.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.15f94104.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "df059223836c584a7703",
-    "url": "/static/js/main.2b455a40.chunk.js"
+    "revision": "aed33d3aa506850563af",
+    "url": "/static/js/main.7af8eee9.chunk.js"
   },
   {
     "revision": "c307e69827cf23a9bfac",
     "url": "/static/js/runtime-main.b8b9f84b.js"
+  },
+  {
+    "revision": "931cbec7600298201e23c27fe4b832b3",
+    "url": "/static/media/2022-07-12.931cbec7.jpg"
+  },
+  {
+    "revision": "a2119df6e886e775db710797c2972383",
+    "url": "/static/media/2022-07-14.a2119df6.jpg"
+  },
+  {
+    "revision": "fa5671a94acff27fd793f9b8ae99038b",
+    "url": "/static/media/2022-08-13.fa5671a9.jpg"
+  },
+  {
+    "revision": "887e01e1e6092560c69d23f5269c0991",
+    "url": "/static/media/2022-08-22.887e01e1.jpg"
+  },
+  {
+    "revision": "58021b8fe349293063821fddab9c7fbb",
+    "url": "/static/media/2022-08-27.58021b8f.jpg"
   },
   {
     "revision": "3ce357e71a836a86691b904396a8955c",
@@ -42,6 +62,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "836acd100a942420f8ab4e6c5e4162d8",
     "url": "/static/media/feature-tile-icon-04.836acd10.svg"
+  },
+  {
+    "revision": "6a1776963deb39d710bae80bb449aebe",
+    "url": "/static/media/feature-tile-icon-06.6a177696.svg"
   },
   {
     "revision": "ea6949039d6554ebf2cf109f333f5811",
