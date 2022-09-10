@@ -68,6 +68,13 @@ const PostSlides = ({
                 {Posts.sort((post1, post2)=>post1.date.localeCompare(post2.date)).reverse().map((post,index) => { 
                     const left = index % 2 === 0;
                     const dateArray = post.date.split("-");
+                    var displayImg=false;
+                    try{
+                      require('./../../assets/images/' + dateArray[0] + "-" + dateArray[1] + "-" + dateArray[2] + ".jpg");
+                      displayImg=true;
+                    }catch(e){
+                      console.log("Not found");
+                    }
                     return (
                     <div className="split-item">
                         <div className={left?"split-item-content center-content-mobile reveal-from-left":"split-item-content center-content-mobile reveal-from-right"} data-reveal-container=".split-item">
@@ -88,11 +95,12 @@ const PostSlides = ({
                             imageFill && 'split-item-image-fill'
                             )}
                             data-reveal-container=".split-item">
-                            <Image
+                            { displayImg && <Image
                             src={require('./../../assets/images/' + dateArray[0] + "-" + dateArray[1] + "-" + dateArray[2] + ".jpg")}
-                            alt="Features split 03"
+                            alt={post.title + " - Image"}
                             width={528}
                             height={396} />
+                }
                         </div>
                         </div>
                 )})}
