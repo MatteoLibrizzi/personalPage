@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Logo from './partials/Logo';
-import FooterNav from './partials/FooterNav';
 
 const propTypes = {
   topOuterDivider: PropTypes.bool,
@@ -42,7 +41,7 @@ const Footer = ({
             <Logo />
           </div>
           <div className="footer-bottom space-between text-xxs invert-order-desktop">
-            <FooterNav />
+            
             <div className="footer-copyright">Made by <a href="https://www.matteolibrizzi.com">Matteo Librizzi</a>. All right reserved</div>
           </div>
         </div>

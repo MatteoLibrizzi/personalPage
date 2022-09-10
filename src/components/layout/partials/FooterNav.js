@@ -19,10 +19,7 @@ const FooterNav = ({
     >
       <ul className="list-reset">
         <li>
-          <Link to="#" onClick={(e)=>{
-            window.location.href="mailto:librizzimatteo.ml@gmail.com";
-            e.preventDefault();
-          }}>Contact</Link>
+          <Link to="">Contact</Link>
         </li>
         <li>
           <Link to="">About us</Link>

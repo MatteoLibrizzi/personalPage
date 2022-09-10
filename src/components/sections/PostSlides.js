@@ -65,10 +65,9 @@ const PostSlides = ({
             <div className={innerClasses}>
                 <SectionHeader data={sectionHeader} className="center-content" />
                 <div className={splitClasses}>
-                {Posts.sort(post=>post.date).reverse().forEach(post=>console.log(post))}
-                {Posts.sort((post1,post2)=>post1.date.localeCompare(post2.date)).reverse().map((post,index) => { 
+                {Posts.sort((post1, post2)=>post1.date.localeCompare(post2.date)).reverse().map((post,index) => { 
                     const left = index % 2 === 0;
-                    console.log(left)
+                    const dateArray = post.date.split("-");
                     return (
                     <div className="split-item">
                         <div className={left?"split-item-content center-content-mobile reveal-from-left":"split-item-content center-content-mobile reveal-from-right"} data-reveal-container=".split-item">
@@ -81,7 +80,7 @@ const PostSlides = ({
                             <p className="m-0">
                             {post.content.substring(0,300)}...
                             </p>
-                            <Link to={post.date}>Keep reading</Link>
+                            <Link to={"/post/" + dateArray[0] + "/" + dateArray[1] + "/" + dateArray[2]}>Keep reading</Link>
                         </div>
                         <div className={
                             classNames(
@@ -90,7 +89,7 @@ const PostSlides = ({
                             )}
                             data-reveal-container=".split-item">
                             <Image
-                            src={require('./../../assets/images/features-split-image-03.png')}
+                            src={require('./../../assets/images/' + dateArray[0] + "-" + dateArray[1] + "-" + dateArray[2] + ".jpg")}
                             alt="Features split 03"
                             width={528}
                             height={396} />
