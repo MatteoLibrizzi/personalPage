@@ -54,16 +54,6 @@ const Hero = ({
               <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
                 Computer science, traveling, sports, languages and much more
                 </p>
-              <div className="reveal-from-bottom" data-reveal-delay="600">
-                <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="#cta">
-                    Subscribe to the newsletter
-                    </Button>
-                  <Button tag="a" color="dark" wideMobile href="/blog">
-                    Get to the blog
-                    </Button>
-                </ButtonGroup>
-              </div>
             </div>
           </div>
           
@@ -77,3 +67,16 @@ Hero.propTypes = propTypes;
 Hero.defaultProps = defaultProps;
 
 export default Hero;
+
+/*
+<div className="reveal-from-bottom" data-reveal-delay="600">
+                <ButtonGroup>
+                  <Button tag="a" color="primary" wideMobile href="#cta">
+                    Subscribe to the newsletter
+                    </Button>
+                  <Button tag="a" color="dark" wideMobile href="/blog">
+                    Get to the blog
+                    </Button>
+                </ButtonGroup>
+              </div>
+*/
