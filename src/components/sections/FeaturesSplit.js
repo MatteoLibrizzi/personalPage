@@ -49,7 +49,7 @@ const FeaturesSplit = ({
   );
 
   const sectionHeader = {
-    title: 'Follow my adventures',
+    title: '',
     paragraph: ''
   };
 

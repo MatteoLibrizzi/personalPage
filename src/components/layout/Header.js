@@ -119,7 +119,7 @@ const Header = ({
                       navPosition && `header-nav-${navPosition}`
                     )}>
                     <li>
-                      <Link to="/blog" onClick={closeMenu}>Blog</Link>
+                      <Link to="/blog" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Blog</Link>
                     </li>
                   </ul>
                   {!hideSignin &&
