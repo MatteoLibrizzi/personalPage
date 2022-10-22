@@ -1,4 +1,3 @@
-import post20220712 from "./20220712";
 import post20220714 from "./20220714";
 import post20220717 from "./20220717";
 import post20220725 from "./20220725";
