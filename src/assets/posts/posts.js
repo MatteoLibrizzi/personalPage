@@ -14,7 +14,7 @@ import post20221022 from "./20221022";
 
 
 const Posts = [
-    post20220712,
+    /*post20220712,*/
     post20220714,
     post20220717,
     post20220725,

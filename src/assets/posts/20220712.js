@@ -1,8 +1,7 @@
-const d=new Date("2022-7-12");
+const d=new Date("2022-07-12");
 const m=d.getMonth()+1;
 const addZero=m < 10;
 const ms= (addZero ? '0' : null) + m.toString();
-console.log("aaa"+ms);
 const post20220712 = {
     key: 11,
     title: "Why ?",
