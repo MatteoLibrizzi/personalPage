@@ -13,6 +13,7 @@ import post20221022 from "./20221022";
 import post20221030 from "./20221030";
 import post20221106 from "./20221106";
 import post20221113 from "./20221113";
+import post20230112 from "./20230112";
 
 
 const Posts = [
@@ -32,6 +33,7 @@ const Posts = [
     post20221030,
     post20221106,
     post20221113,
+    post20230112
 ];
 
 export default Posts;

@@ -96,7 +96,7 @@ const FeaturesTiles = ({
                     Software developer
                     </h4>
                   <p className="m-0 text-sm">
-                    Working part time as a software developer at <a href="https://www.pdp.eu.com/">PDP Tanuki</a>
+                    In February I will start an internship at Amazon Luxembourg
                     </p>
                 </div>
               </div>
@@ -162,7 +162,7 @@ const FeaturesTiles = ({
                     Languages
                     </h4>
                   <p className="m-0 text-sm">
-                    I love learning languages, I'm currently fluent in italian, english, spanish, and am learning french
+                    I love learning languages, I'm currently fluent in italian, english, spanish, and most recently french
                     </p>
                 </div>
               </div>

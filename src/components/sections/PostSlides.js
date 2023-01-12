@@ -84,11 +84,20 @@ const PostSlides = ({
                             <h3 className="mt-0 mb-12">
                             {post.title}
                             </h3>
-                            <p className="m-0">
-                            {post.content.substring(0,300)}...
-                            </p>
-                            <Link to={"/post/" + dateArray[0] + "/" + dateArray[1] + "/" + dateArray[2]}>Keep reading</Link>
-                        </div>
+                            {
+                              post.noPreview === 1 ? 
+                                <div>
+                                  <Link to={"/post/" + dateArray[0] + "/" + dateArray[1] + "/" + dateArray[2]}>Click to read</Link>
+                                </div> 
+                                  :
+                                <div>
+                                <p className="m-0">
+                                {post.content.substring(0,300)}...
+                                </p>
+                                <Link to={"/post/" + dateArray[0] + "/" + dateArray[1] + "/" + dateArray[2]}>Keep reading</Link>
+                                </div>
+                            }
+                          </div>
                         <div className={
                             classNames(
                             'split-item-image center-content-mobile reveal-from-bottom',
