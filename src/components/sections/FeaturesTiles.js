@@ -96,7 +96,7 @@ const FeaturesTiles = ({
                     Software developer
                     </h4>
                   <p className="m-0 text-sm">
-                    In February I will start an internship at Amazon Luxembourg
+                    Worked at PDP Tanuki for 1 year as a part time consultant developer
                     </p>
                 </div>
               </div>
