@@ -2,7 +2,12 @@
     "routes": [
         {
             "route": "/blog",
-            "redirect": "/",
+            "redirect": "/?blog=1",
+            "statusCode": 301
+        },
+        {
+            "route": "/post/*",
+            "redirect": "/blog",
             "statusCode": 301
         }
     ]
