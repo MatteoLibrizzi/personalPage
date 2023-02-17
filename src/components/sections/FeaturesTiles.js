@@ -80,49 +80,6 @@ const FeaturesTiles = ({
               </div>
             </div>
 
-            <div className="tiles-item reveal-from-bottom" data-reveal-delay="200">
-              <div className="tiles-item-inner">
-                <div className="features-tiles-item-header">
-                  <div className="features-tiles-item-image mb-16">
-                    <Image
-                      src={require('./../../assets/images/feature-tile-icon-02.svg')}
-                      alt="Features tile icon 02"
-                      width={64}
-                      height={64} />
-                  </div>
-                </div>
-                <div className="features-tiles-item-content">
-                  <h4 className="mt-0 mb-8">
-                    Software developer
-                    </h4>
-                  <p className="m-0 text-sm">
-                    Worked at PDP Tanuki for 1 year as a part time consultant developer
-                    </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="tiles-item reveal-from-bottom" data-reveal-delay="400">
-              <div className="tiles-item-inner">
-                <div className="features-tiles-item-header">
-                  <div className="features-tiles-item-image mb-16">
-                    <Image
-                      src={require('./../../assets/images/feature-tile-icon-03.svg')}
-                      alt="Features tile icon 03"
-                      width={64}
-                      height={64} />
-                  </div>
-                </div>
-                <div className="features-tiles-item-content">
-                  <h4 className="mt-0 mb-8">
-                    Erasmus Student
-                    </h4>
-                  <p className="m-0 text-sm">
-                    Currently in erasmus in Paris, studying at <a href="https://www.univ-gustave-eiffel.fr/">Université Gustave Eiffel</a>
-                    </p>
-                </div>
-              </div>
-            </div>
 
             <div className="tiles-item reveal-from-bottom">
               <div className="tiles-item-inner">
@@ -168,6 +125,27 @@ const FeaturesTiles = ({
               </div>
             </div>
 
+            <div className="tiles-item reveal-from-bottom" data-reveal-delay="200">
+              <div className="tiles-item-inner">
+                <div className="features-tiles-item-header">
+                  <div className="features-tiles-item-image mb-16">
+                    <Image
+                      src={require('./../../assets/images/amazonLogo.jpg')}
+                      alt="Features tile icon 02"
+                      width={64}
+                      height={64} />
+                  </div>
+                </div>
+                <div className="features-tiles-item-content">
+                  <h4 className="mt-0 mb-8">
+                    Software developer
+                    </h4>
+                  <p className="m-0 text-sm">
+                    Intern SWE at Amazon Luxembourg
+                    </p>
+                </div>
+              </div>
+            </div>
             
 
           </div>
