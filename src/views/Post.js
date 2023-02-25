@@ -7,7 +7,7 @@ import PostContent from '../components/sections/PostContent';
 const Post = (...props) => {
   const params = props[0].match.params;
   var post;
-
+  
   try{
     post = require("../assets/posts/" + params.year + params.month + params.day+".js");
     console.log(post.default);
@@ -17,7 +17,7 @@ const Post = (...props) => {
       default: {
         title: "404 POST NOT FOUND",
         date: "",
-        content: "Either you or I did something wrong\nGo to the home page and try again"
+        content: "Either you or I did something wrong\nGo to the home page and try again\nwww.matteolibrizzi.com"
       }
     }
   }
