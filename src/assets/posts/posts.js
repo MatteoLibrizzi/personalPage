@@ -20,6 +20,7 @@ import post20230218 from "./20230218";
 import post20230225 from "./20230225";
 import post20230329 from "./20230329";
 import post20230410 from "./20230410";
+import post20230606 from "./20230606";
 
 
 const Posts = [
@@ -45,7 +46,8 @@ const Posts = [
     post20230218,
     post20230225,
     post20230329,
-    post20230410
+    post20230410,
+    post20230606,
 ];
 
 export default Posts;
