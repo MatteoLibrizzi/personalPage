@@ -31,6 +31,9 @@ const Cta = ({
   let [verificationCode, setVerificationCode] = useState('')
   let [hasCalledSubscribeAPI, setHasCalledSubscribeAPI] = useState(false)
   let [hasSubscribed, setHasSubscribed] = useState(false)
+  let [wasCodeSent, setWasCodeSent] = useState(false)
+  let [wasMailVerified, setWasMailVerified] = useState(false)
+  let [somethingWentWrong, setSomethingWentWrong] = useState(false)
 
   const outerClasses = classNames(
     'cta section center-content-mobile reveal-from-bottom',
@@ -50,18 +53,32 @@ const Cta = ({
 
   const callSubscribeAPI = async (mail) => {
     console.log(mail)
+    setSomethingWentWrong(false)
 
-    let res = await postData('https://36l693jbic.execute-api.eu-west-1.amazonaws.com/subscribe',{eventType: "Subscribe",mail})
+    let res = await postData('https://36l693jbic.execute-api.eu-west-1.amazonaws.com/subscribe', {eventType: "Subscribe",mail})
     
-    setHasCalledSubscribeAPI(true)
+    if (res.ok) {
+      setWasCodeSent(true)
+      setHasCalledSubscribeAPI(true)
+    } else {
+      setSomethingWentWrong(true)
+    }
   }
 
   const callVerifyAPI = async (mail, verificationCode) => {
-    let res = await postData('https://36l693jbic.execute-api.eu-west-1.amazonaws.com/subscribe',{eventType: "Verify", mail, verificationCode})
-
+    setSomethingWentWrong(false)
+    let res = await postData('https://36l693jbic.execute-api.eu-west-1.amazonaws.com/subscribe', {eventType: "Verify", mail, verificationCode})
+    
+    if (res.ok) {
+      setHasSubscribed(true)
+      setWasCodeSent(true)
+    } else {
+      setSomethingWentWrong(true)
+    }
     console.log(res)
-    setHasSubscribed(true)
   }
+  
+
 
   return (
     <section
@@ -80,14 +97,17 @@ const Cta = ({
           <div className="cta-action">
             {!hasSubscribed &&
               <div>
-                <TextField id="outlined-basic" label="Email" onChange={(event) => {setEmail(event.target.value)}} value={email} variant="outlined" />
-                <Button onClick={() => callSubscribeAPI(email)}>Subscribe</Button>
-              
+                {somethingWentWrong && 
+                  <h4>Sorry, something went wrong, try again or refresh</h4>
+                }
+                <TextField id="outlined-basic" color='secondary' label="Email" onChange={(event) => {setEmail(event.target.value)}} value={email} variant="outlined" />
+                <Button onClick={() => callSubscribeAPI(email)} variant='contained' color='success'>Subscribe</Button>
+                
                 {hasCalledSubscribeAPI &&
                   <div>
-                    <h3>We have sent you an email with the code</h3>
-                    <TextField id="filled-basic" label="Outlined" variant="outlined" onChange={(event) => {setVerificationCode(event.target.value)}} value={verificationCode}/>
-                    <Button onClick={() => callVerifyAPI(email, verificationCode)}>Subscribe</Button>
+                    <h4>We have sent you an email with the code</h4>
+                    <TextField id="outlined-basic" color='secondary' label="Verification code" variant="outlined" onChange={(event) => {setVerificationCode(event.target.value)}} value={verificationCode}/>
+                    <Button onClick={() => callVerifyAPI(email, verificationCode)} variant='contained' color='success'>Verify</Button>
                   </div>
                 }
               </div>

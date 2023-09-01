@@ -3,7 +3,7 @@ export default async function postData(url = "", data = {}) {
     // Default options are marked with *
     const response = await fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
-      mode: "no-cors", // no-cors, *cors, same-origin
+      mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
       credentials: "same-origin", // include, *same-origin, omit
       headers: {
@@ -15,6 +15,7 @@ export default async function postData(url = "", data = {}) {
       body: JSON.stringify(data), // body data type must match "Content-Type" header
       "Content-Type": "application/json",
 
-    });
-    return JSON.stringify(response); // parses JSON response into native JavaScript objects
+    })
+    
+    return response; // parses JSON response into native JavaScript objects
   }
