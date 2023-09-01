@@ -16,6 +16,11 @@
     background-position: right bottom;    
 }
 
+.cta-action {
+    align-items: center;
+    text-align: center;
+}
+
 @include media( '>medium' ) {
 
 .cta {

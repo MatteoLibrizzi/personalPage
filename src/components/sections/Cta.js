@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
-import Input from '../elements/Input';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import postData from '../../worker/callApi';
 
 const propTypes = {
   ...SectionProps.types,
@@ -25,6 +27,10 @@ const Cta = ({
   split,
   ...props
 }) => {
+  let [email, setEmail] = useState('')
+  let [verificationCode, setVerificationCode] = useState('')
+  let [hasCalledSubscribeAPI, setHasCalledSubscribeAPI] = useState(false)
+  let [hasSubscribed, setHasSubscribed] = useState(false)
 
   const outerClasses = classNames(
     'cta section center-content-mobile reveal-from-bottom',
@@ -40,7 +46,22 @@ const Cta = ({
     topDivider && 'has-top-divider',
     bottomDivider && 'has-bottom-divider',
     split && 'cta-split'
-  );  
+  );
+
+  const callSubscribeAPI = async (mail) => {
+    console.log(mail)
+
+    let res = await postData('https://36l693jbic.execute-api.eu-west-1.amazonaws.com/subscribe',{eventType: "Subscribe",mail})
+    
+    setHasCalledSubscribeAPI(true)
+  }
+
+  const callVerifyAPI = async (mail, verificationCode) => {
+    let res = await postData('https://36l693jbic.execute-api.eu-west-1.amazonaws.com/subscribe',{eventType: "Verify", mail, verificationCode})
+
+    console.log(res)
+    setHasSubscribed(true)
+  }
 
   return (
     <section
@@ -57,11 +78,26 @@ const Cta = ({
               </h3>
           </div>
           <div className="cta-action">
-            <Input id="newsletter" type="email" label="Subscribe" labelHidden hasIcon="right" placeholder="NOT WORKING YET">
-              <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z" fill="#376DF9" />
-              </svg>
-            </Input>
+            {!hasSubscribed &&
+              <div>
+                <TextField id="outlined-basic" label="Email" onChange={(event) => {setEmail(event.target.value)}} value={email} variant="outlined" />
+                <Button onClick={() => callSubscribeAPI(email)}>Subscribe</Button>
+              
+                {hasCalledSubscribeAPI &&
+                  <div>
+                    <h3>We have sent you an email with the code</h3>
+                    <TextField id="filled-basic" label="Outlined" variant="outlined" onChange={(event) => {setVerificationCode(event.target.value)}} value={verificationCode}/>
+                    <Button onClick={() => callVerifyAPI(email, verificationCode)}>Subscribe</Button>
+                  </div>
+                }
+              </div>
+            }
+            {hasSubscribed &&
+              <h3>You have successfully subscribed!</h3>
+            }
+            
+            
+            
           </div>
         </div>
       </div>
