@@ -41,7 +41,6 @@ const PostContent = ({
     topDivider && 'has-top-divider',
     bottomDivider && 'has-bottom-divider'
   );
-  console.log(post.title);
 
   const sectionHeader = {
     title: post.title,

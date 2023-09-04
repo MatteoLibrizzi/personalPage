@@ -52,7 +52,6 @@ const Cta = ({
   );
 
   const callSubscribeAPI = async (mail) => {
-    console.log(mail)
     setSomethingWentWrong(false)
 
     let res = await postData('https://36l693jbic.execute-api.eu-west-1.amazonaws.com/subscribe', {eventType: "Subscribe",mail})
@@ -75,7 +74,6 @@ const Cta = ({
     } else {
       setSomethingWentWrong(true)
     }
-    console.log(res)
   }
   
 
@@ -100,16 +98,13 @@ const Cta = ({
                 {somethingWentWrong && 
                   <h4>Sorry, something went wrong, try again or refresh</h4>
                 }
+                <h4>Email to subscribe, we will send you a code for verification</h4>
                 <TextField id="outlined-basic" color='secondary' label="Email" onChange={(event) => {setEmail(event.target.value)}} value={email} variant="outlined" />
-                <Button onClick={() => callSubscribeAPI(email)} variant='contained' color='success'>Subscribe</Button>
+                <Button onClick={() => callSubscribeAPI(email)} variant='contained' color='success'>Send code</Button>
                 
-                {hasCalledSubscribeAPI &&
-                  <div>
-                    <h4>We have sent you an email with the code</h4>
+                <h4>Submite the code for verification and subscribe</h4>
                     <TextField id="outlined-basic" color='secondary' label="Verification code" variant="outlined" onChange={(event) => {setVerificationCode(event.target.value)}} value={verificationCode}/>
-                    <Button onClick={() => callVerifyAPI(email, verificationCode)} variant='contained' color='success'>Verify</Button>
-                  </div>
-                }
+                    <Button onClick={() => callVerifyAPI(email, verificationCode)} variant='contained' color='success'>Verify and Subscribe</Button>
               </div>
             }
             {hasSubscribed &&
