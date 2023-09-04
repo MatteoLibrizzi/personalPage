@@ -1,30 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // import sections
-import PostContent from '../components/sections/PostContent';
+import PostMD from '../components/sections/postMD';
+import postData from '../worker/post';
+import API_URL from '../utils/constants';
 
 // eslint-disable-next-line no-unused-vars
 const Post = (...props) => {
-  const params = props[0].match.params;
-  var post;
-  
-  try{
-    post = require("../assets/posts/" + params.year + params.month + params.day+".js");
-    console.log(post.default);
-  }catch(e){
-    console.log(e);
-    post = {
-      default: {
-        title: "404 POST NOT FOUND",
-        date: "",
-        content: "Either you or I did something wrong\nGo to the home page and try again\nwww.matteolibrizzi.com"
+  let [content, setContent] = useState('# ...Loading')
+
+  const params = props[0].match.params
+  console.log(params)
+  const s3Key = params.title
+
+  useEffect(() => {
+    postData(API_URL, {eventType: 'GetPostContent', s3Key: s3Key})
+    .then(async (res) => {
+      if (res.ok) {
+        const content = await res.text();
+        setContent(content);
+      } else {
+        setContent("Something went wrong. Go back to the home page :)")
       }
-    }
-  }
+    })
+  }, [])
+
 
   return (
     <>
-      <PostContent invertMobile topDivider imageFill className="illustration-section-02" post={post.default}/>
+      <PostMD>{content}</PostMD>
     </>
   );
 }

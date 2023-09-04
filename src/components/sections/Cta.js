@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import postData from '../../worker/callApi';
+import postData from '../../worker/post';
+import API_URL from '../../utils/constants';
 
 const propTypes = {
   ...SectionProps.types,
@@ -29,10 +30,7 @@ const Cta = ({
 }) => {
   let [email, setEmail] = useState('')
   let [verificationCode, setVerificationCode] = useState('')
-  let [hasCalledSubscribeAPI, setHasCalledSubscribeAPI] = useState(false)
   let [hasSubscribed, setHasSubscribed] = useState(false)
-  let [wasCodeSent, setWasCodeSent] = useState(false)
-  let [wasMailVerified, setWasMailVerified] = useState(false)
   let [somethingWentWrong, setSomethingWentWrong] = useState(false)
 
   const outerClasses = classNames(
@@ -54,7 +52,7 @@ const Cta = ({
   const callSubscribeAPI = async (mail) => {
     setSomethingWentWrong(false)
 
-    let res = await postData('https://36l693jbic.execute-api.eu-west-1.amazonaws.com/subscribe', {eventType: "Subscribe",mail})
+    let res = await postData(API_URL, {eventType: "Subscribe",mail})
     
     if (res.ok) {
       setWasCodeSent(true)
@@ -66,7 +64,7 @@ const Cta = ({
 
   const callVerifyAPI = async (mail, verificationCode) => {
     setSomethingWentWrong(false)
-    let res = await postData('https://36l693jbic.execute-api.eu-west-1.amazonaws.com/subscribe', {eventType: "Verify", mail, verificationCode})
+    let res = await postData(API_URL, {eventType: "Verify", mail, verificationCode})
     
     if (res.ok) {
       setHasSubscribed(true)
