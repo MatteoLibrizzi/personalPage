@@ -42,8 +42,7 @@ const App = () => {
         <Switch>
           <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
           <AppRoute exact path="/blog" component={Blog} layout={LayoutBlog} />
-          <AppRoute exact path="/post/:year/:month/:day" component={Post} layout={LayoutPost} />
-          <AppRoute exact path="/md/:title" component={Post} layout={LayoutPost}/>
+          <AppRoute exact path="/post/:title" component={Post} layout={LayoutPost}/>
         </Switch>
       )} />
   );

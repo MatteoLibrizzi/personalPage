@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import { SectionSplitProps } from '../../utils/SectionProps';
 import SectionHeader from './partials/SectionHeader';
 import Image from '../elements/Image';
-import Posts from '../../assets/posts/posts';
 import { Link } from 'react-router-dom'
 import postData from '../../worker/post';
 import API_URL from '../../utils/constants';
@@ -31,7 +30,44 @@ const PostSlides = ({
   ...props
 }) => {
   const [postsMD, setPostsMD] = useState([])
+  const [imagesKeys, setImagesKeys] = useState([])
+  const [keysToImages, setKeysToImages] = useState({})
+/*
+  useEffect(() => {
+    postData(API_URL+"/getPosts", {eventType: 'GetImagesKeys'})
+    .then(async (res) => {
+      if (res.ok) {
+        const content = await res.text();
+        console.log({content})
+        const array = JSON.parse(content)
+        console.log({array})
+        setImagesKeys(array);
+      } else {
+        setImagesKeys([])
+      }
+    })
+    .then(() => {
+      console.log("Then")
+      imagesKeys.forEach(async (key) => {
+        postData(API_URL + "/getPosts", {eventType: 'GetImage', s3Key: key}).then(async (response) => {
+          if (response.ok) {
+            console.log("Successful", {response, key})
+            const imageData = await response.blob()
+            const keysToImagesCopy = Object.assign({}, keysToImages)
+            keysToImagesCopy[key] = URL.createObjectURL(imageData)
+            setKeysToImages(keysToImagesCopy)
+          } else {
+            console.log("Not successful", {response, key})
+          }
+        })
+      })
+    })
+  }, [])
 
+  console.log({keysToImages})
+
+  console.log({imagesKeys})
+  */
   useEffect(() => {
     postData(API_URL+"/getPosts", {eventType: 'GetPostsKeys'})
     .then(async (res) => {
@@ -46,6 +82,12 @@ const PostSlides = ({
       }
     })
   }, [])
+  const postsData = postsMD.sort((p1,p2) => p1 < p2).map(post => {
+    const date = post.split("__")[0]
+    const title = post.split("__")[1]
+    
+    return {date, title, s3Key: post.toString()}
+  })
 
 
   const outerClasses = classNames(
@@ -80,22 +122,24 @@ const PostSlides = ({
       {...props}
       className={outerClasses}
     >
-        <div className="container">
+
+    <div className='container'>
             <div className={innerClasses}>
                 <SectionHeader data={sectionHeader} className="center-content" />
                 <div className={splitClasses}>
-                  {postsMD.map((post, index) => {
-                    const left = index % 2 === 0;
-                    const displayImg = false
+                  {postsData.map((post, index) => {
+                    const {date, title, s3Key, imageData} = post
+                    console.log(date, title, s3Key, imageData)
+
                     return (
                       <div key={index} className="split-item">
-                        <div className={left?"split-item-content center-content-mobile reveal-from-left":"split-item-content center-content-mobile reveal-from-right"} data-reveal-container=".split-item">
+                        <div className={"split-item-content center-content-mobile is-revealed"} data-reveal-container=".split-item">
                         <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                            {"aaa"}
+                            {date}
                             </div>
-                          <h3 className="mt-0 mb-12">{"" + post}</h3>
+                          <h3 className="mt-0 mb-12">{title}</h3>
                           <div>
-                          <Link to={"/post/" + post}>Keep reading</Link>
+                          <Link to={"/post/" + s3Key}>Click to read</Link>
                           </div>
                         </div>
                         <div className={
@@ -104,21 +148,21 @@ const PostSlides = ({
                             imageFill && 'split-item-image-fill'
                             )}
                             data-reveal-container=".split-item">
-                            { displayImg && <Image
+                            {imageData && <Image
                             alt={post.title + " - Image"}
+                            src={"data:image/jpeg;base64,"+imageData}
                             width={528}
                             height={396} />
-                }
+                  }
                         </div>
                         </div>
                         
                     )
-
                   })}
                 
                 </div>
             </div>
-        </div>
+    </div>
     </section>
   );
 }
