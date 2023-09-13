@@ -52,11 +52,9 @@ const Cta = ({
   const callSubscribeAPI = async (mail) => {
     setSomethingWentWrong(false)
 
-    let res = await postData(API_URL, {eventType: "Subscribe",mail})
+    let res = await postData(API_URL+"/subscribe", {eventType: "Subscribe",mail})
     
     if (res.ok) {
-      setWasCodeSent(true)
-      setHasCalledSubscribeAPI(true)
     } else {
       setSomethingWentWrong(true)
     }
@@ -64,13 +62,10 @@ const Cta = ({
 
   const callVerifyAPI = async (mail, verificationCode) => {
     setSomethingWentWrong(false)
-    let res = await postData(API_URL, {eventType: "Verify", mail, verificationCode})
+    let res = await postData(API_URL+"/subscribe", {eventType: "Verify", mail, verificationCode})
     
     if (res.ok) {
       setHasSubscribed(true)
-      setWasCodeSent(true)
-    } else {
-      setSomethingWentWrong(true)
     }
   }
   

@@ -14,7 +14,7 @@ const Post = (...props) => {
   const s3Key = params.title
 
   useEffect(() => {
-    postData(API_URL, {eventType: 'GetPostContent', s3Key: s3Key})
+    postData(API_URL+"/getPosts", {eventType: 'GetPostContent', s3Key: s3Key})
     .then(async (res) => {
       if (res.ok) {
         const content = await res.text();

@@ -33,11 +33,13 @@ const PostSlides = ({
   const [postsMD, setPostsMD] = useState([])
 
   useEffect(() => {
-    postData(API_URL, {eventType: 'GetPostsKeys'})
+    postData(API_URL+"/getPosts", {eventType: 'GetPostsKeys'})
     .then(async (res) => {
       if (res.ok) {
         const content = await res.text();
+        console.log({content})
         const array = JSON.parse(content)
+        console.log({array})
         setPostsMD(array);
       } else {
         setPostsMD([])
