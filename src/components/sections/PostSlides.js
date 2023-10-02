@@ -84,7 +84,7 @@ const PostSlides = ({
   }, [])
   const postsData = postsMD.sort((p1,p2) => p1 < p2).map(post => {
     const date = post.split("__")[0]
-    const title = post.split("__")[1]
+    const title = post.split("__")[1].replaceAll('_',' ')
     
     return {date, title, s3Key: post.toString()}
   })

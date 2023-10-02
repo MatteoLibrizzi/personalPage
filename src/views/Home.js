@@ -4,8 +4,6 @@ import { Redirect } from 'react-router-dom'
 import Hero from '../components/sections/Hero';
 import FeaturesTiles from '../components/sections/FeaturesTiles';
 import FeaturesSplit from '../components/sections/FeaturesSplit';
-import Cta from '../components/sections/Cta';
-import Markdown from './Markdown'
 
 const Home = (...props) => {
 
@@ -17,7 +15,6 @@ const Home = (...props) => {
       <Hero className="illustration-section-01" />
       <FeaturesTiles />
       <FeaturesSplit invertMobile topDivider imageFill className="illustration-section-02" />
-      <Cta split />
     </>
   );
 }
