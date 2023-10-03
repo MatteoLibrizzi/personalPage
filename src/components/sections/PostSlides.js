@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import classNames from 'classnames';
-import { SectionSplitProps } from '../../utils/SectionProps';
-import SectionHeader from './partials/SectionHeader';
-import Image from '../elements/Image';
-import { Link } from 'react-router-dom'
-import postData from '../../worker/post';
-import API_URL from '../../utils/constants';
+import React, { useEffect, useState } from 'react'
+import classNames from 'classnames'
+import { SectionSplitProps } from '../../utils/SectionProps'
+import SectionHeader from './partials/SectionHeader'
+import postData from '../../worker/post'
+import API_URL from '../../utils/constants'
 
 const propTypes = {
   ...SectionSplitProps.types
@@ -29,10 +27,9 @@ const PostSlides = ({
   imageFill,
   ...props
 }) => {
+  // TODO move posts and images to a new component where you pass the post data, so that the rendering can be done only when we have the data, and the list in the scrollreveal is filled
   const [postsMD, setPostsMD] = useState([])
-  const [imagesKeys, setImagesKeys] = useState([])
-  const [keysToImages, setKeysToImages] = useState({})
-/*
+  /*
   useEffect(() => {
     postData(API_URL+"/getPosts", {eventType: 'GetImagesKeys'})
     .then(async (res) => {
@@ -69,26 +66,23 @@ const PostSlides = ({
   console.log({imagesKeys})
   */
   useEffect(() => {
-    postData(API_URL+"/getPosts", {eventType: 'GetPostsKeys'})
-    .then(async (res) => {
-      if (res.ok) {
-        const content = await res.text();
-        console.log({content})
-        const array = JSON.parse(content)
-        console.log({array})
-        setPostsMD(array);
-      } else {
-        setPostsMD([])
-      }
-    })
+    postData(API_URL + '/getPosts', { eventType: 'GetPostsKeys' })
+      .then(async (res) => {
+        if (res.ok) {
+          const content = await res.text()
+          const array = JSON.parse(content)
+          setPostsMD(array)
+        } else {
+          setPostsMD([])
+        }
+      })
   }, [])
-  const postsData = postsMD.sort((p1,p2) => p1 < p2).map(post => {
-    const date = post.split("__")[0]
-    const title = post.split("__")[1].replaceAll('_',' ')
-    
-    return {date, title, s3Key: post.toString()}
-  })
+  const postsData = postsMD.sort((p1, p2) => p1 < p2).map(post => {
+    const date = post.split('__')[0]
+    const title = post.split('__')[1].replaceAll('_', ' ')
 
+    return { date, title, s3Key: post.toString() }
+  })
 
   const outerClasses = classNames(
     'features-split section',
@@ -97,25 +91,25 @@ const PostSlides = ({
     hasBgColor && 'has-bg-color',
     invertColor && 'invert-color',
     className
-  );
+  )
 
   const innerClasses = classNames(
     'features-split-inner section-inner',
     topDivider && 'has-top-divider',
     bottomDivider && 'has-bottom-divider'
-  );
+  )
 
   const splitClasses = classNames(
     'split-wrap',
     invertMobile && 'invert-mobile',
     invertDesktop && 'invert-desktop',
     alignTop && 'align-top'
-  );
+  )
 
   const sectionHeader = {
     title: 'Blog',
     paragraph: ''
-  };
+  }
 
   return (
     <section
@@ -125,90 +119,25 @@ const PostSlides = ({
 
     <div className='container'>
             <div className={innerClasses}>
-                <SectionHeader data={sectionHeader} className="center-content" />
+            <SectionHeader data={sectionHeader} className="center-content" />
                 <div className={splitClasses}>
-                  {postsData.map((post, index) => {
-                    const {date, title, s3Key, imageData} = post
-                    console.log(date, title, s3Key, imageData)
-
-                    /*
-                    <div className="split-item">
-                        <div className={left?"split-item-content center-content-mobile reveal-from-left":"split-item-content center-content-mobile reveal-from-right"} data-reveal-container=".split-item">
-                            <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                            {post.date}
-                            </div>
-                            <h3 className="mt-0 mb-12">
-                            {post.title}
-                            </h3>
-                            {
-                              post.noPreview === 1 ? 
-                                <div>
-                                  <Link to={"/post/" + dateArray[0] + "/" + dateArray[1] + "/" + dateArray[2]}>Click to read</Link>
-                                </div> 
-                                  :
-                                <div>
-                                <p className="m-0">
-                                {post.content.substring(0,300)}...
-                                </p>
-                                <Link to={"/post/" + dateArray[0] + "/" + dateArray[1] + "/" + dateArray[2]}>Keep reading</Link>
-                                </div>
-                            }
-                          </div>
-                        <div className={
-                            classNames(
-                            'split-item-image center-content-mobile reveal-from-bottom',
-                            imageFill && 'split-item-image-fill'
-                            )}
-                            data-reveal-container=".split-item">
-                            { displayImg && <Image
-                            src={require('./../../assets/images/' + dateArray[0] + "-" + dateArray[1] + "-" + dateArray[2] + ".jpg")}
-                            alt={post.title + " - Image"}
-                            width={528}
-                            height={396} />
-                }
-                        </div>
-                        </div>
-                    */
-
-                    return (
-                      <div key={index} className="split-item">
-                        <div className={"split-item-content center-content-mobile reveal-from-left"} data-reveal-container=".split-item">
-                        <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                            {date}
-                            </div>
-                          <h3 className="mt-0 mb-12">{title}</h3>
-                          <div>
-                            <div>
-                              <Link to={"/post/" + s3Key}>Click to read</Link>
-                            </div>
-                          </div>
-                        </div>
-                        <div className={
-                            classNames(
-                            'split-item-image center-content-mobile reveal-from-bottom',
-                            imageFill && 'split-item-image-fill'
-                            )}
-                            data-reveal-container=".split-item">
-                            {imageData && <Image
-                            alt={post.title + " - Image"}
-                            src={"data:image/jpeg;base64,"+imageData}
-                            width={528}
-                            height={396} />
-                  }
-                        </div>
-                        </div>
-                        
-                    )
-                  })}
-                
-                </div>
+              {
+                postsData.map((post, index) => {
+                  return (
+                    <div key={index}>
+                      <h1>post</h1>
+                    </div>
+                  )
+                })
+              }
+              </div>
             </div>
     </div>
     </section>
-  );
+  )
 }
 
-PostSlides.propTypes = propTypes;
-PostSlides.defaultProps = defaultProps;
+PostSlides.propTypes = propTypes
+PostSlides.defaultProps = defaultProps
 
-export default PostSlides;
+export default PostSlides

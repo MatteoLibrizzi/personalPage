@@ -1,9 +1,7 @@
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
-
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 const PostMD = ({ children }) => {
-  console.log("hi")
   return (
     <>
         <div className="container">
@@ -16,7 +14,7 @@ const PostMD = ({ children }) => {
             </section>
         </div>
     </>
-  );
+  )
 }
 
-export default PostMD;
+export default PostMD

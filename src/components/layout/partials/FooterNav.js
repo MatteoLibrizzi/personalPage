@@ -1,16 +1,15 @@
-import React from 'react';
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import classNames from 'classnames'
+import { Link } from 'react-router-dom'
 
 const FooterNav = ({
   className,
   ...props
 }) => {
-
   const classes = classNames(
     'footer-nav',
     className
-  );
+  )
 
   return (
     <nav
@@ -26,7 +25,7 @@ const FooterNav = ({
         </li>
       </ul>
     </nav>
-  );
+  )
 }
 /*
         <li>
@@ -34,4 +33,4 @@ const FooterNav = ({
         </li>
 */
 
-export default FooterNav;
+export default FooterNav

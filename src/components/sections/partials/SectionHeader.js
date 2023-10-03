@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 const propTypes = {
   data: PropTypes.shape({
@@ -23,13 +23,12 @@ const SectionHeader = ({
   tag,
   ...props
 }) => {
-
   const classes = classNames(
     'section-header',
     className
-  );
+  )
 
-  const Component = tag;
+  const Component = tag
 
   return (
     <>
@@ -54,10 +53,10 @@ const SectionHeader = ({
         </div>
       }
     </>
-  );
+  )
 }
 
-SectionHeader.propTypes = propTypes;
-SectionHeader.defaultProps = defaultProps;
+SectionHeader.propTypes = propTypes
+SectionHeader.defaultProps = defaultProps
 
-export default SectionHeader;
+export default SectionHeader

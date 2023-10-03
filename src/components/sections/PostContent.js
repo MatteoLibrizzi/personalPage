@@ -1,7 +1,7 @@
-import React from 'react';
-import classNames from 'classnames';
-import { SectionSplitProps } from '../../utils/SectionProps';
-import SectionHeader from './partials/SectionHeader';
+import React from 'react'
+import classNames from 'classnames'
+import { SectionSplitProps } from '../../utils/SectionProps'
+import SectionHeader from './partials/SectionHeader'
 
 const propTypes = {
   ...SectionSplitProps.types
@@ -26,7 +26,6 @@ const PostContent = ({
   imageFill,
   ...props
 }) => {
-
   const outerClasses = classNames(
     'features-split section',
     topOuterDivider && 'has-top-divider',
@@ -34,20 +33,20 @@ const PostContent = ({
     hasBgColor && 'has-bg-color',
     invertColor && 'invert-color',
     className
-  );
+  )
 
   const innerClasses = classNames(
     'features-split-inner section-inner',
     topDivider && 'has-top-divider',
     bottomDivider && 'has-bottom-divider'
-  );
+  )
 
   const sectionHeader = {
     title: post.title,
-    paragraph: post.date,
-  };
+    paragraph: post.date
+  }
 
-  const postContentLines = post.content.split("\n");
+  const postContentLines = post.content.split('\n')
 
   return (
     <section
@@ -57,20 +56,20 @@ const PostContent = ({
         <div className="container">
             <div className={innerClasses}>
                 <SectionHeader data={sectionHeader} className="center-content" />
-                {postContentLines.map(line=>{
-                    return (
+                {postContentLines.map(line => {
+                  return (
                         <p>
                             {line}
                         </p>
-                    )
+                  )
                 })}
             </div>
         </div>
     </section>
-  );
+  )
 }
 
-PostContent.propTypes = propTypes;
-PostContent.defaultProps = defaultProps;
+PostContent.propTypes = propTypes
+PostContent.defaultProps = defaultProps
 
-export default PostContent;
+export default PostContent

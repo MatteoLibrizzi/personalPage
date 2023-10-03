@@ -1,14 +1,13 @@
-import React from 'react';
+import React from 'react'
 // import sections
-import PostSlides from '../components/sections/PostSlides';
+import PostSlides from '../components/sections/PostSlides'
 
 const Blog = () => {
-
   return (
     <>
       <PostSlides invertMobile topDivider imageFill className="illustration-section-02" />
     </>
-  );
+  )
 }
 
-export default Blog;
+export default Blog

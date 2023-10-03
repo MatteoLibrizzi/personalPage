@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Logo from './partials/Logo';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import Logo from './partials/Logo'
 
 const propTypes = {
   topOuterDivider: PropTypes.bool,
@@ -19,12 +19,11 @@ const Footer = ({
   topDivider,
   ...props
 }) => {
-
   const classes = classNames(
     'site-footer center-content-mobile',
     topOuterDivider && 'has-top-divider',
     className
-  );
+  )
 
   return (
     <footer
@@ -41,16 +40,16 @@ const Footer = ({
             <Logo />
           </div>
           <div className="footer-bottom space-between text-xxs invert-order-desktop">
-            
+
             <div className="footer-copyright">Made by <a href="https://www.matteolibrizzi.com">Matteo Librizzi</a>. All right reserved</div>
           </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
-Footer.propTypes = propTypes;
-Footer.defaultProps = defaultProps;
+Footer.propTypes = propTypes
+Footer.defaultProps = defaultProps
 
-export default Footer;
+export default Footer

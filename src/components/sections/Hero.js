@@ -1,6 +1,6 @@
-import React from 'react';
-import classNames from 'classnames';
-import { SectionProps } from '../../utils/SectionProps';
+import React from 'react'
+import classNames from 'classnames'
+import { SectionProps } from '../../utils/SectionProps'
 
 const propTypes = {
   ...SectionProps.types
@@ -20,8 +20,6 @@ const Hero = ({
   invertColor,
   ...props
 }) => {
- 
-
   const outerClasses = classNames(
     'hero section center-content',
     topOuterDivider && 'has-top-divider',
@@ -29,13 +27,13 @@ const Hero = ({
     hasBgColor && 'has-bg-color',
     invertColor && 'invert-color',
     className
-  );
+  )
 
   const innerClasses = classNames(
     'hero-inner section-inner',
     topDivider && 'has-top-divider',
     bottomDivider && 'has-bottom-divider'
-  );
+  )
 
   return (
     <section
@@ -54,17 +52,17 @@ const Hero = ({
                 </p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-Hero.propTypes = propTypes;
-Hero.defaultProps = defaultProps;
+Hero.propTypes = propTypes
+Hero.defaultProps = defaultProps
 
-export default Hero;
+export default Hero
 
 /*
 <div className="reveal-from-bottom" data-reveal-delay="600">

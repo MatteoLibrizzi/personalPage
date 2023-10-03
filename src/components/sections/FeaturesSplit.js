@@ -1,7 +1,7 @@
-import React from 'react';
-import classNames from 'classnames';
-import { SectionSplitProps } from '../../utils/SectionProps';
-import SectionHeader from './partials/SectionHeader';
+import React from 'react'
+import classNames from 'classnames'
+import { SectionSplitProps } from '../../utils/SectionProps'
+import SectionHeader from './partials/SectionHeader'
 
 const propTypes = {
   ...SectionSplitProps.types
@@ -25,7 +25,6 @@ const FeaturesSplit = ({
   imageFill,
   ...props
 }) => {
-
   const outerClasses = classNames(
     'features-split section',
     topOuterDivider && 'has-top-divider',
@@ -33,25 +32,25 @@ const FeaturesSplit = ({
     hasBgColor && 'has-bg-color',
     invertColor && 'invert-color',
     className
-  );
+  )
 
   const innerClasses = classNames(
     'features-split-inner section-inner',
     topDivider && 'has-top-divider',
     bottomDivider && 'has-bottom-divider'
-  );
+  )
 
   const splitClasses = classNames(
     'split-wrap',
     invertMobile && 'invert-mobile',
     invertDesktop && 'invert-desktop',
     alignTop && 'align-top'
-  );
+  )
 
   const sectionHeader = {
     title: '',
     paragraph: ''
-  };
+  }
 
   return (
     <section
@@ -66,15 +65,15 @@ const FeaturesSplit = ({
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-FeaturesSplit.propTypes = propTypes;
-FeaturesSplit.defaultProps = defaultProps;
+FeaturesSplit.propTypes = propTypes
+FeaturesSplit.defaultProps = defaultProps
 
-export default FeaturesSplit;
+export default FeaturesSplit
 
-/*scrolling down thingy
+/* scrolling down thingy
 
 <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">

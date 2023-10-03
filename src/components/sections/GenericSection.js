@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { SectionProps } from '../../utils/SectionProps';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import { SectionProps } from '../../utils/SectionProps'
 
 const propTypes = {
   children: PropTypes.node,
@@ -24,7 +24,6 @@ const GenericSection = ({
   invertColor,
   ...props
 }) => {
-
   const outerClasses = classNames(
     'section',
     topOuterDivider && 'has-top-divider',
@@ -32,13 +31,13 @@ const GenericSection = ({
     hasBgColor && 'has-bg-color',
     invertColor && 'invert-color',
     className
-  );
+  )
 
   const innerClasses = classNames(
     'section-inner',
     topDivider && 'has-top-divider',
     bottomDivider && 'has-bottom-divider'
-  );
+  )
 
   return (
     <section
@@ -51,10 +50,10 @@ const GenericSection = ({
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-GenericSection.propTypes = propTypes;
-GenericSection.defaultProps = defaultProps;
+GenericSection.propTypes = propTypes
+GenericSection.defaultProps = defaultProps
 
-export default GenericSection;
+export default GenericSection
