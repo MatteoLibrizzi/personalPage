@@ -127,9 +127,15 @@ const PostSlides = ({
 					<div className={splitClasses}>
 						{postsData.map((post, index) => {
 							const { date, title, s3Key } = post
-							console.log(date, title, s3Key)
-							const imageName = (index+1) + '.jpg'
-
+							const imageName = index + 1 + '.jpg'
+							let imageData = null
+							try {
+								imageData = require('../../assets/images/' +
+									imageName)
+							} catch (e) {
+								console.log()
+							}
+							console.log(imageData)
 							return (
 								<div key={index} className='split-item'>
 									<div
@@ -154,12 +160,9 @@ const PostSlides = ({
 												'split-item-image-fill',
 										)}
 										data-reveal-container='.split-item'>
-										{imageName && (
+										{imageData && (
 											<Image
-												alt={post.title + ' - Image'}
-												src={
-													require('../../assets/images/'+imageName)
-												}
+												src={imageData}
 												width={528}
 												height={396}
 											/>

@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown'
 
 const MarkdownRenderer = ({ children }) => {
 	return (
-		<div className="markdown-content">
+		<div className='markdown-content'>
 			<ReactMarkdown>{children}</ReactMarkdown>
 		</div>
 	)

@@ -53,8 +53,6 @@ const PostSlide = ({
 	}
 
 	const postsData = []
-	console.log(sectionHeader, splitClasses, innerClasses, outerClasses)
-
 	return (
 		<>
 

@@ -5,7 +5,12 @@ import PostSlides from '../components/sections/PostSlides'
 const Blog = () => {
 	return (
 		<>
-			<PostSlides invertMobile topDivider imageFill className="illustration-section-02" />
+			<PostSlides
+				invertMobile
+				topDivider
+				imageFill
+				className='illustration-section-02'
+			/>
 		</>
 	)
 }

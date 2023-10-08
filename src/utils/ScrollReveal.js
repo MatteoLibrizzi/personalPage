@@ -5,7 +5,6 @@ import { throttle } from 'lodash'
 const ScrollReveal = React.forwardRef((props, ref) => {
 	const [viewportHeight, setViewportheight] = useState(window.innerHeight)
 	const [revealEl, setRevealel] = useState([])
-	console.log({ revealEl })
 
 	const checkComplete = () => {
 		return (
@@ -21,7 +20,6 @@ const ScrollReveal = React.forwardRef((props, ref) => {
 	const revealElements = () => {
 		if (checkComplete()) return
 		for (let i = 0; i < revealEl.length; i++) {
-			console.log('Element ' + i)
 			const el = revealEl[i]
 			const revealDelay = el.getAttribute('data-reveal-delay')
 			const revealOffset = el.getAttribute('data-reveal-offset')
@@ -34,7 +32,6 @@ const ScrollReveal = React.forwardRef((props, ref) => {
 				elementIsVisible(listenedEl, revealOffset) &&
 				!el.classList.contains('is-revealed')
 			) {
-				console.log('Element visible and not revealed yet')
 				if (revealDelay && revealDelay !== 0) {
 					setTimeout(function () {
 						el.classList.add('is-revealed')
@@ -65,7 +62,6 @@ const ScrollReveal = React.forwardRef((props, ref) => {
 
 	const handleListeners = () => {
 		if (!checkComplete()) return
-		console.log('Handling listeners')
 		window.removeEventListener('scroll', handleScroll)
 		window.removeEventListener('resize', handleResize)
 	}
