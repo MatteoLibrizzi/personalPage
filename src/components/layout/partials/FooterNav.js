@@ -3,29 +3,29 @@ import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
 const FooterNav = ({
-  className,
-  ...props
+	className,
+	...props
 }) => {
-  const classes = classNames(
-    'footer-nav',
-    className
-  )
+	const classes = classNames(
+		'footer-nav',
+		className
+	)
 
-  return (
-    <nav
-      {...props}
-      className={classes}
-    >
-      <ul className="list-reset">
-        <li>
-          <Link to="">Contact</Link>
-        </li>
-        <li>
-          <Link to="">About us</Link>
-        </li>
-      </ul>
-    </nav>
-  )
+	return (
+		<nav
+			{...props}
+			className={classes}
+		>
+			<ul className="list-reset">
+				<li>
+					<Link to="">Contact</Link>
+				</li>
+				<li>
+					<Link to="">About us</Link>
+				</li>
+			</ul>
+		</nav>
+	)
 }
 /*
         <li>

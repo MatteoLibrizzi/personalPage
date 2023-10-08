@@ -8,104 +8,104 @@ import postData from '../../worker/post'
 import API_URL from '../../utils/constants'
 
 const propTypes = {
-  ...SectionProps.types,
-  split: PropTypes.bool
+	...SectionProps.types,
+	split: PropTypes.bool
 }
 
 const defaultProps = {
-  ...SectionProps.defaults,
-  split: false
+	...SectionProps.defaults,
+	split: false
 }
 
 const Cta = ({
-  className,
-  topOuterDivider,
-  bottomOuterDivider,
-  topDivider,
-  bottomDivider,
-  hasBgColor,
-  invertColor,
-  split,
-  ...props
+	className,
+	topOuterDivider,
+	bottomOuterDivider,
+	topDivider,
+	bottomDivider,
+	hasBgColor,
+	invertColor,
+	split,
+	...props
 }) => {
-  const [email, setEmail] = useState('')
-  const [verificationCode, setVerificationCode] = useState('')
-  const [hasSubscribed, setHasSubscribed] = useState(false)
-  const [somethingWentWrong, setSomethingWentWrong] = useState(false)
+	const [email, setEmail] = useState('')
+	const [verificationCode, setVerificationCode] = useState('')
+	const [hasSubscribed, setHasSubscribed] = useState(false)
+	const [somethingWentWrong, setSomethingWentWrong] = useState(false)
 
-  const outerClasses = classNames(
-    'cta section center-content-mobile reveal-from-bottom',
-    topOuterDivider && 'has-top-divider',
-    bottomOuterDivider && 'has-bottom-divider',
-    hasBgColor && 'has-bg-color',
-    invertColor && 'invert-color',
-    className
-  )
+	const outerClasses = classNames(
+		'cta section center-content-mobile reveal-from-bottom',
+		topOuterDivider && 'has-top-divider',
+		bottomOuterDivider && 'has-bottom-divider',
+		hasBgColor && 'has-bg-color',
+		invertColor && 'invert-color',
+		className
+	)
 
-  const innerClasses = classNames(
-    'cta-inner section-inner',
-    topDivider && 'has-top-divider',
-    bottomDivider && 'has-bottom-divider',
-    split && 'cta-split'
-  )
+	const innerClasses = classNames(
+		'cta-inner section-inner',
+		topDivider && 'has-top-divider',
+		bottomDivider && 'has-bottom-divider',
+		split && 'cta-split'
+	)
 
-  const callSubscribeAPI = async (mail) => {
-    setSomethingWentWrong(false)
+	const callSubscribeAPI = async (mail) => {
+		setSomethingWentWrong(false)
 
-    const res = await postData(API_URL + '/subscribe', { eventType: 'Subscribe', mail })
+		const res = await postData(API_URL + '/subscribe', { eventType: 'Subscribe', mail })
 
-    if (!res.ok) {
-      setSomethingWentWrong(true)
-    }
-  }
+		if (!res.ok) {
+			setSomethingWentWrong(true)
+		}
+	}
 
-  const callVerifyAPI = async (mail, verificationCode) => {
-    setSomethingWentWrong(false)
-    const res = await postData(API_URL + '/subscribe', { eventType: 'Verify', mail, verificationCode })
+	const callVerifyAPI = async (mail, verificationCode) => {
+		setSomethingWentWrong(false)
+		const res = await postData(API_URL + '/subscribe', { eventType: 'Verify', mail, verificationCode })
 
-    if (res.ok) {
-      setHasSubscribed(true)
-    }
-  }
+		if (res.ok) {
+			setHasSubscribed(true)
+		}
+	}
 
-  return (
-    <section
-      {...props}
-      className={outerClasses}
-    >
-      <div className="container" id="cta">
-        <div
-          className={innerClasses}
-        >
-          <div className="cta-slogan">
-            <h3 className="m-0">
+	return (
+		<section
+			{...props}
+			className={outerClasses}
+		>
+			<div className="container" id="cta">
+				<div
+					className={innerClasses}
+				>
+					<div className="cta-slogan">
+						<h3 className="m-0">
               Subscribe to the newsletter
-              </h3>
-          </div>
-          <div className="cta-action">
-            {!hasSubscribed &&
+						</h3>
+					</div>
+					<div className="cta-action">
+						{!hasSubscribed &&
               <div>
-                {somethingWentWrong &&
+              	{somethingWentWrong &&
                   <h4>Sorry, something went wrong, try again or refresh</h4>
-                }
-                <h4>Email to subscribe, we will send you a code for verification</h4>
-                <TextField id="outlined-basic" color='secondary' label="Email" onChange={(event) => { setEmail(event.target.value) }} value={email} variant="outlined" />
-                <Button onClick={() => callSubscribeAPI(email)} variant='contained' color='success'>Send code</Button>
+              	}
+              	<h4>Email to subscribe, we will send you a code for verification</h4>
+              	<TextField id="outlined-basic" color='secondary' label="Email" onChange={(event) => { setEmail(event.target.value) }} value={email} variant="outlined" />
+              	<Button onClick={() => callSubscribeAPI(email)} variant='contained' color='success'>Send code</Button>
 
-                <h4>Submite the code for verification and subscribe</h4>
-                    <TextField id="outlined-basic" color='secondary' label="Verification code" variant="outlined" onChange={(event) => { setVerificationCode(event.target.value) }} value={verificationCode}/>
-                    <Button onClick={() => callVerifyAPI(email, verificationCode)} variant='contained' color='success'>Verify and Subscribe</Button>
+              	<h4>Submite the code for verification and subscribe</h4>
+              	<TextField id="outlined-basic" color='secondary' label="Verification code" variant="outlined" onChange={(event) => { setVerificationCode(event.target.value) }} value={verificationCode}/>
+              	<Button onClick={() => callVerifyAPI(email, verificationCode)} variant='contained' color='success'>Verify and Subscribe</Button>
               </div>
-            }
-            {hasSubscribed &&
+						}
+						{hasSubscribed &&
               <h3>You have successfully subscribed!</h3>
-            }
+						}
 
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+					</div>
+				</div>
+			</div>
+		</section>
+	)
 }
 
 Cta.propTypes = propTypes

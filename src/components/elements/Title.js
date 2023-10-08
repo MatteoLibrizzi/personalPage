@@ -9,11 +9,11 @@ const defaultProps = {
 }
 
 const Title = ({
-  classNames
+	classNames
 }) => {
-  return (<>
-        <h5>Matteo Librizzi</h5>
-    </>)
+	return (<>
+		<h5>Matteo Librizzi</h5>
+	</>)
 }
 
 Title.propTypes = propTypes

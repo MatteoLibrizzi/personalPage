@@ -6,15 +6,15 @@ import FeaturesTiles from '../components/sections/FeaturesTiles'
 import FeaturesSplit from '../components/sections/FeaturesSplit'
 
 const Home = (...props) => {
-  if (props[0].location.search === '?blog') { return <Redirect to="/blog" /> }
+	if (props[0].location.search === '?blog') { return <Redirect to="/blog" /> }
 
-  return (
-    <>
-      <Hero className="illustration-section-01" />
-      <FeaturesTiles />
-      <FeaturesSplit invertMobile topDivider imageFill className="illustration-section-02" />
-    </>
-  )
+	return (
+		<>
+			<Hero className="illustration-section-01" />
+			<FeaturesTiles />
+			<FeaturesSplit invertMobile topDivider imageFill className="illustration-section-02" />
+		</>
+	)
 }
 
 /*

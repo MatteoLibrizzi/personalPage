@@ -4,49 +4,49 @@ import classNames from 'classnames'
 import Logo from './partials/Logo'
 
 const propTypes = {
-  topOuterDivider: PropTypes.bool,
-  topDivider: PropTypes.bool
+	topOuterDivider: PropTypes.bool,
+	topDivider: PropTypes.bool
 }
 
 const defaultProps = {
-  topOuterDivider: false,
-  topDivider: false
+	topOuterDivider: false,
+	topDivider: false
 }
 
 const Footer = ({
-  className,
-  topOuterDivider,
-  topDivider,
-  ...props
+	className,
+	topOuterDivider,
+	topDivider,
+	...props
 }) => {
-  const classes = classNames(
-    'site-footer center-content-mobile',
-    topOuterDivider && 'has-top-divider',
-    className
-  )
+	const classes = classNames(
+		'site-footer center-content-mobile',
+		topOuterDivider && 'has-top-divider',
+		className
+	)
 
-  return (
-    <footer
-      {...props}
-      className={classes}
-    >
-      <div className="container">
-        <div className={
-          classNames(
-            'site-footer-inner',
-            topDivider && 'has-top-divider'
-          )}>
-          <div className="footer-top space-between text-xxs">
-            <Logo />
-          </div>
-          <div className="footer-bottom space-between text-xxs invert-order-desktop">
+	return (
+		<footer
+			{...props}
+			className={classes}
+		>
+			<div className="container">
+				<div className={
+					classNames(
+						'site-footer-inner',
+						topDivider && 'has-top-divider'
+					)}>
+					<div className="footer-top space-between text-xxs">
+						<Logo />
+					</div>
+					<div className="footer-bottom space-between text-xxs invert-order-desktop">
 
-            <div className="footer-copyright">Made by <a href="https://www.matteolibrizzi.com">Matteo Librizzi</a>. All right reserved</div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  )
+						<div className="footer-copyright">Made by <a href="https://www.matteolibrizzi.com">Matteo Librizzi</a>. All right reserved</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	)
 }
 
 Footer.propTypes = propTypes

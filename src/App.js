@@ -18,33 +18,33 @@ import Post from './views/Post'
 ReactGA.initialize(process.env.REACT_APP_GA_CODE)
 
 const trackPage = page => {
-  ReactGA.set({ page })
-  ReactGA.pageview(page)
+	ReactGA.set({ page })
+	ReactGA.pageview(page)
 }
 
 const App = () => {
-  const childRef = useRef()
-  const location = useLocation()
+	const childRef = useRef()
+	const location = useLocation()
 
-  useEffect(() => {
-    const page = location.pathname
-    document.body.classList.add('is-loaded')
-    childRef.current.init()
-    trackPage(page)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location])
+	useEffect(() => {
+		const page = location.pathname
+		document.body.classList.add('is-loaded')
+		childRef.current.init()
+		trackPage(page)
+		// eslint-disable-next-line 
+	}, [location])
 
-  return (
-    <ScrollReveal
-      ref={childRef}
-      children={() => (
-        <Switch>
-          <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
-          <AppRoute exact path="/blog" component={Blog} layout={LayoutBlog} />
-          <AppRoute exact path="/post/:title" component={Post} layout={LayoutPost}/>
-        </Switch>
-      )} />
-  )
+	return (
+		<ScrollReveal
+			ref={childRef}
+			children={() => (
+				<Switch>
+					<AppRoute exact path="/" component={Home} layout={LayoutDefault} />
+					<AppRoute exact path="/blog" component={Blog} layout={LayoutBlog} />
+					<AppRoute exact path="/post/:title" component={Post} layout={LayoutPost}/>
+				</Switch>
+			)} />
+	)
 }
 
 export default App
