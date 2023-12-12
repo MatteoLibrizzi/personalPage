@@ -1,0 +1,11 @@
+.footer {
+	display: flex;
+	flex-direction: row;
+}
+
+.left-footer {
+	position: relative;
+	left: 10vw;
+	display: flex;
+	flex-direction: column;
+}

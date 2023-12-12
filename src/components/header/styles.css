@@ -1,0 +1,15 @@
+.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.logo {
+	position: relative;
+	left: 10vw;
+}
+
+.menu {
+	position: relative;
+	left: 80vw;
+}
