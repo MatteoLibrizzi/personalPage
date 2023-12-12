@@ -5,6 +5,7 @@ import LayoutDefault from "./layouts/defaultLayout";
 import { LandingPage } from "./pages/landing";
 import { PersonalBlog } from "./pages/personalBlog";
 import { TechBlog } from "./pages/techBlog";
+import { BlogPost } from "./pages/blogPost";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/blog" element={<LayoutDefault />}>
           <Route path="personal" index element={<PersonalBlog />} />
           <Route path="tech" index element={<TechBlog />} />
+          <Route path="post/:s3Key" index element={<BlogPost />} />
         </Route>
       </Routes>
     </BrowserRouter>

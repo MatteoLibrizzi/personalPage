@@ -3,7 +3,7 @@ import "./styles.css";
 
 export const InfoWithImages = () => {
   return (
-    <div className="info-with-images flex-row">
+    <div className="info-with-images flex-row-center">
       <InfoItem textElement={<h1>info 1</h1>}>
         <img
           className="image-item"

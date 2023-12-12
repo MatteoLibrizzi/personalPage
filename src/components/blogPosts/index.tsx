@@ -1,10 +1,22 @@
-import "./styles.css"
+import { useBlogPostsTitles } from "../../hooks/useBlogPostsTitles";
+import { BlogPostItem } from "../blogPostItem";
+import "./styles.css";
 
-export const BlogPosts = () => {
-	return (
-		<div className="blog-posts flex-col">
-			<h1>Blog Posts</h1>
-			<h1>Blog Posts</h1>
-		</div>
-	)
+interface BlogPostsProps {
+  url: string;
 }
+
+export const BlogPosts = ({ url }: BlogPostsProps) => {
+  const { data: titles, loading, error } = useBlogPostsTitles(url);
+
+  return (
+    <div className="blog-posts flex-col-center">
+      {loading && <p>Loading...</p>}
+      {error && <p>Something went wrong</p>}
+      {titles &&
+        titles
+          .sort((a, b) => b.localeCompare(a))
+          .map((title) => <BlogPostItem key={title} s3Key={title} />)}
+    </div>
+  );
+};
