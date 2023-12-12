@@ -1,0 +1,15 @@
+.info-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.info-items .text-item {
+
+}
+
+.info-item .children-item {
+	max-width: 300px;
+	max-height: 300px;
+}

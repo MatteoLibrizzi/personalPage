@@ -7,9 +7,17 @@
 .logo {
 	position: relative;
 	left: 10vw;
+	display: block;
+    max-width:40px;
+    max-height:40px;
+    width: auto;
+    height: auto;
 }
 
-.menu {
+.links {
 	position: relative;
-	left: 80vw;
+	left: 70vw;
+	display: flex;
+	flex-direction: row;
+	gap: 1vw;
 }

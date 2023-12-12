@@ -1,9 +1,11 @@
 import "./styles.css";
+import logo from "../../static/logo.jpg";
+import { Links } from "./Links";
 export const Header = () => {
   return (
     <div className="header">
-      <h1 className="logo">logo</h1>
-      <h2 className="menu">menu</h2>
+      <img className="logo" src={logo} alt="logo" />
+      <Links />
     </div>
   );
 };
