@@ -17,7 +17,5 @@
 .links {
 	position: relative;
 	left: 70vw;
-	display: flex;
-	flex-direction: row;
 	gap: 1vw;
 }

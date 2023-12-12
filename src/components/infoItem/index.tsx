@@ -8,7 +8,7 @@ export interface InfoItemProps {
 
 export const InfoItem = ({ children, textElement }: InfoItemProps) => {
   return (
-    <div className="info-item">
+    <div className="info-item flex-col">
 		<div className="text-item">{textElement}</div>
 		<div className="children-item">{children}</div>
     </div>

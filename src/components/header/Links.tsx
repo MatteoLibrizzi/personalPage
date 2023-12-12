@@ -3,7 +3,7 @@ import { BLOG_LINK, PERSONAL_BLOG_SUFFIX, TECH_BLOG_SUFFIX, WORK_WITH_ME_LINK } 
 
 export const Links = () => {
   return (
-    <div className="links">
+    <div className="links flex-row">
       <Link className="link" to={`${BLOG_LINK}/${PERSONAL_BLOG_SUFFIX}`}>
         <h4>Personal Blog</h4>
       </Link>
