@@ -1,3 +1,4 @@
+import { useBlogPostsImagesKeys } from "../../hooks/useBlogPostsImagesKeys";
 import { useBlogPostsTitles } from "../../hooks/useBlogPostsTitles";
 import { BlogPostItem } from "../blogPostItem";
 import "./styles.css";
@@ -7,16 +8,20 @@ interface BlogPostsProps {
 }
 
 export const BlogPosts = ({ url }: BlogPostsProps) => {
-  const { data: titles, loading, error } = useBlogPostsTitles(url);
+  const {
+    data: titles,
+    loading: loadingTitles,
+    error: errorTitles,
+  } = useBlogPostsTitles(url);
 
   return (
     <div className="blog-posts flex-col-center">
-      {loading && <p>Loading...</p>}
-      {error && <p>Something went wrong</p>}
+      {loadingTitles && <p>Loading...</p>}
+      {errorTitles && <p>Something went wrong</p>}
       {titles &&
         titles
           .sort((a, b) => b.localeCompare(a))
-          .map((title) => <BlogPostItem key={title} s3Key={title} />)}
+          .map((title) => <BlogPostItem key={title} posts3Key={title} url={url} />)}
     </div>
   );
 };

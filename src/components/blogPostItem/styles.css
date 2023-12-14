@@ -1,0 +1,10 @@
+.blog-post-item {
+	  width: 70%;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+}

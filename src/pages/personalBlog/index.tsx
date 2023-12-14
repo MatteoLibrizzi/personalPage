@@ -1,7 +1,8 @@
 import { BlogPosts } from "../../components/blogPosts";
+import { PERSONAL_BLOG_API_URL } from "../../others/constants";
 
 export const PersonalBlog = () => {
   return (
-    <BlogPosts url="https://5k3fdtvru2.execute-api.eu-west-1.amazonaws.com/getPosts" />
+    <BlogPosts url={PERSONAL_BLOG_API_URL} />
   );
 };
