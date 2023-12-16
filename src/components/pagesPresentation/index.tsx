@@ -7,7 +7,7 @@ import "./styles.css";
 
 export const PagesPresentation = () => {
   return (
-    <div className="pages-presentation flex-row-center">
+    <div className="pages-presentation row-big-col-small">
       <InfoItem textElement={<h1 className="info-item">info 1</h1>}>
         <Link className="link" to={`${BLOG_LINK}/${PERSONAL_BLOG_SUFFIX}`}>
           <h4>Personal Blog</h4>

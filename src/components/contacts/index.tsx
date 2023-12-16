@@ -1,15 +1,12 @@
 import { GitHub, LinkedIn, Mail } from "@mui/icons-material";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { GITHUB_URL, LINKEDIN_URL, MAIL_ADDRESS_URL } from "../../others/constants";
 
-export const LINKEDIN_URL =
-  "https://www.linkedin.com/in/matteo-librizzi-450465180/";
-export const GITHUB_URL = "https://github.com/MatteoLibrizzi";
-export const MAIL_ADDRESS_URL = "mailto:librizzimatteo.ml@gmail.com";
 
 export const Contacts = () => {
   return (
-    <div className="contacts">
+    <div className="contacts icons">
       <Link to={LINKEDIN_URL}>
         <LinkedIn />
       </Link>

@@ -1,4 +1,3 @@
-import { useBlogPostsImagesKeys } from "../../hooks/useBlogPostsImagesKeys";
 import { useBlogPostsTitles } from "../../hooks/useBlogPostsTitles";
 import { BlogPostItem } from "../blogPostItem";
 import "./styles.css";

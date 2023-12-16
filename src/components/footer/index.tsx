@@ -1,6 +1,5 @@
 import { Contacts } from "../contacts";
 import "./styles.css";
-import logo from "../../static/logo.jpg";
 import { Logo } from "../logo";
 
 export const Footer = () => {
