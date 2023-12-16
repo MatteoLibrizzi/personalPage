@@ -7,6 +7,24 @@ import traveling from "../../static/traveling.png";
 export const InfoWithImages = () => {
   return (
     <div className="info-with-images row-big-col-small">
+      
+      <InfoItem
+        textElement={
+          <div className="flex-col-center">
+            <h1>Traveling</h1>
+            <p className="short-p-style">
+              Traveling gives great meaning to my life
+            </p>
+          </div>
+        }
+      >
+        <img
+          className="image-item"
+          src={traveling}
+          alt="random"
+          style={{ maxWidth: "150px", padding: "2vh 0 3vh 0" }}
+        />
+      </InfoItem>
       <InfoItem
         textElement={
           <div className="flex-col-center">
@@ -29,23 +47,6 @@ export const InfoWithImages = () => {
             style={{ maxWidth: "150px", padding: "2vh 0 3vh 0" }}
           />
         </a>
-      </InfoItem>
-      <InfoItem
-        textElement={
-          <div className="flex-col-center">
-            <h1>Traveling</h1>
-            <p className="short-p-style">
-              Traveling gives great meaning to my life
-            </p>
-          </div>
-        }
-      >
-        <img
-          className="image-item"
-          src={traveling}
-          alt="random"
-          style={{ maxWidth: "150px", padding: "2vh 0 3vh 0" }}
-        />
       </InfoItem>
       <InfoItem
         textElement={
