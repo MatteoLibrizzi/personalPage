@@ -1,3 +1,8 @@
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
 .flex-col-center {
   display: flex;
   flex-direction: column;

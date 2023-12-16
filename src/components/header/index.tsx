@@ -1,11 +1,11 @@
-import "./styles.css";
 import logo from "../../static/logo.jpg";
-import { Links } from "./Links";
+import { LinksMenu } from "./Links";
+import "./styles.css";
 export const Header = () => {
   return (
     <div className="header">
       <img className="logo" src={logo} alt="logo" />
-      <Links />
+      <LinksMenu />
     </div>
   );
 };

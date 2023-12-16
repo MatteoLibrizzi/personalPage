@@ -1,18 +1,28 @@
-import { Link } from "react-router-dom";
-import { BLOG_LINK, PERSONAL_BLOG_SUFFIX, TECH_BLOG_SUFFIX, WORK_WITH_ME_LINK } from "../../others/constants";
+import {
+  BLOG_LINK,
+  PERSONAL_BLOG_SUFFIX,
+  TECH_BLOG_SUFFIX,
+  WORK_WITH_ME_LINK,
+} from "../../others/constants";
+import { LinksItem } from "./LinksItem";
 
-export const Links = () => {
+export const LinksMenu = () => {
   return (
     <div className="links flex-row-center">
-      <Link className="link" to={`${BLOG_LINK}/${PERSONAL_BLOG_SUFFIX}`}>
-        <h4>Personal Blog</h4>
-      </Link>
-      <Link className="link" to={`${BLOG_LINK}/${TECH_BLOG_SUFFIX}`}>
-        <h4>Tech Blog</h4>
-      </Link>
-      <Link className="link" to={WORK_WITH_ME_LINK}>
-        <h4>Work With Me</h4>
-      </Link>
+      <label className="menu-button-container" htmlFor="menu-toggle">
+        <div className="menu-button"></div>
+      </label>
+      <ul className="menu">
+        <LinksItem
+          to={`${BLOG_LINK}/${PERSONAL_BLOG_SUFFIX}`}
+          content={"Personal Blog"}
+        />
+        <LinksItem
+          to={`${BLOG_LINK}/${TECH_BLOG_SUFFIX}`}
+          content="Tech Blog"
+        />
+        <LinksItem to={WORK_WITH_ME_LINK} content="Work With Me" />
+      </ul>
     </div>
   );
 };
