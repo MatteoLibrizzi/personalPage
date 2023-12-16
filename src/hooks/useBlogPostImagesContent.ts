@@ -1,6 +1,7 @@
 import { useFetchBlobImage } from "./useFetch";
 
 export const useBlogPostImage = (url: string, postsTitle: string) => {
+  console.log("useBlogPostImage", url, postsTitle)
   const { data, loading, error } = useFetchBlobImage<string>({
     url,
     method: "POST",

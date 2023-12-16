@@ -4,9 +4,10 @@ import "./styles.css";
 
 interface BlogPostsProps {
   url: string;
+  blogType: string;
 }
 
-export const BlogPosts = ({ url }: BlogPostsProps) => {
+export const BlogPosts = ({ url, blogType }: BlogPostsProps) => {
   const {
     data: titles,
     loading: loadingTitles,
@@ -20,7 +21,14 @@ export const BlogPosts = ({ url }: BlogPostsProps) => {
       {titles &&
         titles
           .sort((a, b) => b.localeCompare(a))
-          .map((title) => <BlogPostItem key={title} posts3Key={title} url={url} />)}
+          .map((title) => (
+            <BlogPostItem
+              key={title}
+              posts3Key={title}
+              url={url}
+              blogType={blogType}
+            />
+          ))}
     </div>
   );
 };

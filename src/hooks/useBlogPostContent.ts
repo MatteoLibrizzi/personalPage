@@ -1,8 +1,14 @@
 import { useFetchBlobText } from "./useFetch";
 
-export const useBlogPostContent = (s3Key: string) => {
+type UseBlogPostContentProps = {
+  s3Key: string;
+  url: string;
+};
+
+export const useBlogPostContent = (props: UseBlogPostContentProps) => {
+  const { s3Key, url } = props;
   const { data, loading, error } = useFetchBlobText<string>({
-    url: "https://5k3fdtvru2.execute-api.eu-west-1.amazonaws.com/getPosts",
+    url,
     method: "POST",
     body: JSON.stringify({ eventType: "GetPostContent", s3Key }),
     headers: {

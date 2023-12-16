@@ -7,13 +7,13 @@ import { GITHUB_URL, LINKEDIN_URL, MAIL_ADDRESS_URL } from "../../others/constan
 export const Contacts = () => {
   return (
     <div className="contacts icons">
-      <Link to={LINKEDIN_URL}>
+      <Link to={LINKEDIN_URL} target={'_blank'}>
         <LinkedIn />
       </Link>
-      <Link to={GITHUB_URL}>
+      <Link to={GITHUB_URL} target={'_blank'}>
         <GitHub />
       </Link>
-      <Link to={MAIL_ADDRESS_URL}>
+      <Link to={MAIL_ADDRESS_URL} target={'_blank'}>
         <Mail />
       </Link>
     </div>

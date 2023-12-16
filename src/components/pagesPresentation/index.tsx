@@ -1,28 +1,55 @@
-import { Link } from "react-router-dom";
-import { BLOG_LINK, PERSONAL_BLOG_SUFFIX, TECH_BLOG_SUFFIX, WORK_WITH_ME_LINK } from "../../others/constants";
+import {
+  BLOG_LINK,
+  PERSONAL_BLOG_SUFFIX,
+  TECH_BLOG_SUFFIX,
+  WORK_WITH_ME_LINK,
+} from "../../others/constants";
 import { InfoItem } from "../infoItem";
 import "./styles.css";
-
-
+import { LinksItem } from "../header/LinksItem";
 
 export const PagesPresentation = () => {
   return (
-    <div className="pages-presentation row-big-col-small">
-      <InfoItem textElement={<h1 className="info-item">info 1</h1>}>
-        <Link className="link" to={`${BLOG_LINK}/${PERSONAL_BLOG_SUFFIX}`}>
-          <h4>Personal Blog</h4>
-        </Link>
-      </InfoItem>
-      <InfoItem textElement={<h1 className="info-item">info 1</h1>}>
-        <Link className="link" to={`${BLOG_LINK}/${TECH_BLOG_SUFFIX}`}>
-          <h4>Tech Blog</h4>
-        </Link>
-      </InfoItem>
-      <InfoItem textElement={<h1 className="info-item">info 1</h1>}>
-        <Link className="link" to={WORK_WITH_ME_LINK}>
-          <h4>Work With Me</h4>
-        </Link>
-      </InfoItem>
+    <div className="flex-col-center">
+      <h1>About this website:</h1>
+      <div className="pages-presentation row-big-col-small">
+        <InfoItem
+          textElement={
+            <p className="short-p-style">
+              If you want to learn more about my travels and personal life,
+              visit my personal blog
+            </p>
+          }
+        >
+          <LinksItem
+            to={`${BLOG_LINK}/${PERSONAL_BLOG_SUFFIX}`}
+            content={"Personal Blog"}
+          />
+        </InfoItem>
+        <InfoItem
+          textElement={
+            <p className="short-p-style">
+              If you want to learn more about my coding experience, visit my
+              tech blog
+            </p>
+          }
+        >
+          <LinksItem
+            to={`${BLOG_LINK}/${TECH_BLOG_SUFFIX}`}
+            content="Tech Blog"
+          />
+        </InfoItem>
+        <InfoItem
+          textElement={
+            <p className="short-p-style">
+              If you might be interested in working with me, visit my
+              professional infomation page
+            </p>
+          }
+        >
+          <LinksItem to={WORK_WITH_ME_LINK} content="Work With Me" />
+        </InfoItem>
+      </div>
     </div>
   );
 };

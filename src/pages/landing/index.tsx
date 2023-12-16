@@ -15,8 +15,6 @@ export const LandingPage = () => {
       <div className="section">
         <PagesPresentation />
       </div>
-      <h1 className="section">section 1</h1>
-      <h2 className="section">section 2</h2>
     </div>
   );
 };

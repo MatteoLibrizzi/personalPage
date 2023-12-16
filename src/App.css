@@ -24,6 +24,11 @@
   justify-content: center;
 }
 
+.short-p-style {
+  max-width: 250px;
+  text-align: center;
+}
+
 @media (max-width: 700px) {
   .row-big-col-small {
     display: flex;
