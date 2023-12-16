@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { useBlogPostsTitles } from "../../hooks/useBlogPostsTitles";
 import { BlogPostItem } from "../blogPostItem";
 import "./styles.css";
@@ -16,7 +17,7 @@ export const BlogPosts = ({ url, blogType }: BlogPostsProps) => {
 
   return (
     <div className="blog-posts flex-col-center">
-      {loadingTitles && <p>Loading...</p>}
+      {loadingTitles && <CircularProgress />}
       {errorTitles && <p>Something went wrong</p>}
       {titles &&
         titles

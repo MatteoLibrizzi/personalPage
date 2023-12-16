@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useBlogPostImage } from "../../hooks/useBlogPostImagesContent";
 import { FancyBox } from "../fancyBox";
 import "./styles.css";
+import { CircularProgress } from "@mui/material";
 
 interface BlogPostItemProps {
   posts3Key: string;
@@ -25,10 +26,14 @@ export const BlogPostItem = (props: BlogPostItemProps) => {
   const date = s3KeyParts[0];
   const displayTitle = s3KeyParts[1].replaceAll("_", " ");
 
-  const { data: image } = useBlogPostImage(url, imageKey);
+  const { data: image, loading: loadingImage } = useBlogPostImage(
+    url,
+    imageKey
+  );
 
   return (
     <div className="blog-post-item">
+      {loadingImage && <CircularProgress />}
       {image && (
         <img
           src={image}

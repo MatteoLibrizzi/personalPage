@@ -2,8 +2,12 @@ import { useResolvedPath } from "react-router-dom";
 import { useBlogPostContent } from "../../hooks/useBlogPostContent";
 import ReactMarkdown from "react-markdown";
 import "./styles.css";
-import { url } from "inspector";
-import { PERSONAL_BLOG_API_URL, TECH_BLOG_API_URL } from "../../others/constants";
+import {
+  PERSONAL_BLOG_API_URL,
+  TECH_BLOG_API_URL,
+} from "../../others/constants";
+import { CircularProgress } from "@mui/material";
+import { ErrorMessage } from "../../components/error";
 
 type BlogPostProps = {
   url: string;
@@ -21,8 +25,8 @@ const BlogPost = (props: BlogPostProps) => {
 
   return (
     <div className="blog-post flex-col-center">
-      {loading && <div>Loading...</div>}
-      {error && <div>Error</div>}
+      {loading && <CircularProgress />}
+      {error && <ErrorMessage />}
       <ReactMarkdown>{postContent}</ReactMarkdown>
     </div>
   );
@@ -30,8 +34,8 @@ const BlogPost = (props: BlogPostProps) => {
 
 export const BlogPostPersonal = () => {
   return <BlogPost url={PERSONAL_BLOG_API_URL} />;
-}
+};
 
 export const BlogPostTech = () => {
   return <BlogPost url={TECH_BLOG_API_URL} />;
-}
+};
