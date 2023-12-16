@@ -1,9 +1,9 @@
 .footer {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-around;
 }
 
 .left-footer {
-	position: relative;
-	left: 10vw;
+	text-align: start;
 }

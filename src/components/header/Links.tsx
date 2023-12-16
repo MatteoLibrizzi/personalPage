@@ -14,6 +14,10 @@ export const LinksMenu = () => {
       </label>
       <ul className="menu">
         <LinksItem
+          to='/'
+          content={"Home"}
+        />
+        <LinksItem
           to={`${BLOG_LINK}/${PERSONAL_BLOG_SUFFIX}`}
           content={"Personal Blog"}
         />

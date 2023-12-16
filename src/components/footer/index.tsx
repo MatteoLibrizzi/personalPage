@@ -1,13 +1,14 @@
 import { Contacts } from "../contacts";
 import "./styles.css";
 import logo from "../../static/logo.jpg";
+import { Logo } from "../logo";
 
 export const Footer = () => {
   return (
     <div className="footer">
       <div className="left-footer">
-        <img className="logo" src={logo} alt="logo" />
-        <h2 className="writing">all rights reserved bla bla</h2>
+        <Logo />
+        <p className="writing" style={{color: 'gray'}}>All rights reserved</p>
       </div>
       <Contacts />
     </div>

@@ -11,7 +11,9 @@ export const LinksItem = ({ to, content }: LinksItemProps) => {
       <Button
         onClick={() => {
           const menuToggle = document.getElementById("menu-toggle");
-          menuToggle?.click();
+          if (window.innerWidth <= 700) {
+            menuToggle?.click();
+          }
         }}
       >
         <p className="link-text">{content}</p>
