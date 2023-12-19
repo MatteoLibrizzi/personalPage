@@ -4,9 +4,9 @@ import {
   TECH_BLOG_SUFFIX,
   WORK_WITH_ME_LINK,
 } from "../../others/constants";
+import { LinksItem } from "../header/LinksItem";
 import { InfoItem } from "../infoItem";
 import "./styles.css";
-import { LinksItem } from "../header/LinksItem";
 
 export const PagesPresentation = () => {
   return (

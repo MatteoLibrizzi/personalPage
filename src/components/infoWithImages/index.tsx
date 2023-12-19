@@ -1,16 +1,15 @@
+import athlete from "../../static/sport.png";
+import coding from "../../static/toqua.png";
+import traveling from "../../static/traveling.png";
 import { InfoItem } from "../infoItem";
 import "./styles.css";
-import coding from "../../static/toqua.png";
-import athlete from "../../static/sport.png";
-import traveling from "../../static/traveling.png";
 
 export const InfoWithImages = () => {
   return (
     <div className="info-with-images row-big-col-small">
-      
       <InfoItem
         textElement={
-          <div className="flex-col-center">
+          <div className="flex-col-center bounce-in-left">
             <h1>Traveling</h1>
             <p className="short-p-style">
               Traveling gives great meaning to my life
@@ -27,19 +26,21 @@ export const InfoWithImages = () => {
       </InfoItem>
       <InfoItem
         textElement={
-          <div className="flex-col-center">
+          <div className="flex-col-center bounce-in-top">
             <h1>Coding</h1>
             <p className="short-p-style">
               Coding is my fulltime job and one of my favorites hobbies
             </p>
             <p className="short-p-style">
               I work as a Software Engineer at{" "}
-              <a href="https://toqua.ai">Toqua</a>
+              <a href="https://toqua.ai" target={"_blank"} rel="noreferrer">
+                Toqua
+              </a>
             </p>
           </div>
         }
       >
-        <a href="https://toqua.ai">
+        <a href="https://toqua.ai" target={"_blank"} rel="noreferrer">
           <img
             className="image-item"
             src={coding}
@@ -50,7 +51,7 @@ export const InfoWithImages = () => {
       </InfoItem>
       <InfoItem
         textElement={
-          <div className="flex-col-center">
+          <div className="flex-col-center bounce-in-right">
             <h1>Sport</h1>
             <p className="short-p-style">
               I love playing sports and being phisically active

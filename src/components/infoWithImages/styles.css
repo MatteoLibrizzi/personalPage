@@ -1,3 +1,4 @@
-.info-with-images{
-	gap: 10vw;
+.info-with-images {
+  gap: 10vw;
+  align-items: start;
 }

@@ -32,50 +32,50 @@ const DiscounterPrice = ({
 export const WorkWithMe = () => {
   const Head = () => (
     <TableHead style={{ backgroundColor: "lightblue" }}>
-      <TableCell align="left">Type</TableCell>
-      <TableCell align="left">Number of Pages</TableCell>
-      <TableCell align="left">Max. Time Required</TableCell>
-      <TableCell align="left">Minimum Price</TableCell>
-      <TableCell align="left">Maximum Price</TableCell>
+      <TableCell align="right">Type</TableCell>
+      <TableCell align="right">Number of Pages</TableCell>
+      <TableCell align="right">Max. Time Required</TableCell>
+      <TableCell align="right">Minimum Price</TableCell>
+      <TableCell align="right">Maximum Price</TableCell>
     </TableHead>
   );
   const Body = () => (
     <TableBody>
       <TableRow>
-        <TableCell align="right">Simple</TableCell>
-        <TableCell align="right">1</TableCell>
-        <TableCell align="right">2 weeks</TableCell>
-        <TableCell align="right">
+        <TableCell align="left">Simple</TableCell>
+        <TableCell align="left">1</TableCell>
+        <TableCell align="left">2 weeks</TableCell>
+        <TableCell align="left">
           <DiscounterPrice oldPrice={1000} newPrice={800} />
         </TableCell>
-        <TableCell align="right">1200€</TableCell>
+        <TableCell align="left">1200€</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell align="right">Simple</TableCell>
-        <TableCell align="right">5</TableCell>
-        <TableCell align="right">3 weeks</TableCell>
-        <TableCell align="right">
+        <TableCell align="left">Simple</TableCell>
+        <TableCell align="left">5</TableCell>
+        <TableCell align="left">3 weeks</TableCell>
+        <TableCell align="left">
           <DiscounterPrice oldPrice={1400} newPrice={1200} />
         </TableCell>
-        <TableCell align="right">1600€</TableCell>
+        <TableCell align="left">1600€</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell align="right">Complex (API)</TableCell>
-        <TableCell align="right">1</TableCell>
-        <TableCell align="right">3 weeks</TableCell>
-        <TableCell align="right">
+        <TableCell align="left">Complex (API)</TableCell>
+        <TableCell align="left">1</TableCell>
+        <TableCell align="left">3 weeks</TableCell>
+        <TableCell align="left">
           <DiscounterPrice oldPrice={1700} newPrice={1500} />
         </TableCell>
-        <TableCell align="right">2100€</TableCell>
+        <TableCell align="left">2100€</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell align="right">Complex (API)</TableCell>
-        <TableCell align="right">5</TableCell>
-        <TableCell align="right">4 weeks</TableCell>
-        <TableCell align="right">
+        <TableCell align="left">Complex (API)</TableCell>
+        <TableCell align="left">5</TableCell>
+        <TableCell align="left">4 weeks</TableCell>
+        <TableCell align="left">
           <DiscounterPrice oldPrice={3000} newPrice={2500} />
         </TableCell>
-        <TableCell align="right">3500€</TableCell>
+        <TableCell align="left">3500€</TableCell>
       </TableRow>
     </TableBody>
   );

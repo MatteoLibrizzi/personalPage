@@ -8,6 +8,7 @@ interface BlogPostItemProps {
   posts3Key: string;
   url: string;
   blogType: string;
+  left: boolean;
 }
 
 const getPostImageKeyFromTitle = (title: string) => {
@@ -17,7 +18,7 @@ const getPostImageKeyFromTitle = (title: string) => {
 };
 
 export const BlogPostItem = (props: BlogPostItemProps) => {
-  const { posts3Key, url, blogType } = props;
+  const { posts3Key, url, blogType, left } = props;
 
   const s3KeyParts = posts3Key.split("__");
 
@@ -45,7 +46,7 @@ export const BlogPostItem = (props: BlogPostItemProps) => {
           }}
         />
       )}
-      <FancyBox>
+      <FancyBox className={left ? 'bounce-in-left' : 'bounce-in-right'}>
         <div className="flex-col-center" style={{ padding: "5vh" }}>
           <Link
             to={`/blog/post/${blogType}/${posts3Key}`}

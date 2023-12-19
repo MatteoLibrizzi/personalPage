@@ -22,12 +22,13 @@ export const BlogPosts = ({ url, blogType }: BlogPostsProps) => {
       {titles &&
         titles
           .sort((a, b) => b.localeCompare(a))
-          .map((title) => (
+          .map((title, index) => (
             <BlogPostItem
               key={title}
               posts3Key={title}
               url={url}
               blogType={blogType}
+              left={index % 2 === 0}
             />
           ))}
     </div>
