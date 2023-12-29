@@ -1,8 +1,7 @@
-import { Button, Card, Container, Link, Typography } from "@mui/material";
+import { Card, Container, Link, Typography } from "@mui/material";
 import athlete from "../../static/sport.png";
 import coding from "../../static/toqua.png";
 import traveling from "../../static/traveling.png";
-import { InfoItem } from "../infoItem";
 import "./styles.css";
 
 const infoSx = {

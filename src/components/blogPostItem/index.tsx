@@ -59,6 +59,7 @@ export const BlogPostItem = (props: BlogPostItemProps) => {
           width: "80%",
           bgcolor: "secondary.light",
         }}
+        className={left ? "bounce-in-left" : "bounce-in-right"}
       >
         <CardMedia sx={{ padding: "3vh" }}>
           {loadingImage && <CircularProgress />}
