@@ -105,7 +105,7 @@ export const DrawerDefault = () => {
             justifyContent: "center",
           }}
         >
-          <Contacts />
+          <Contacts color="primary.main" />
         </Box>
       </Box>
     );
