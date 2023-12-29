@@ -6,7 +6,7 @@ import {
   PERSONAL_BLOG_API_URL,
   TECH_BLOG_API_URL,
 } from "../../others/constants";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Container } from "@mui/material";
 import { ErrorMessage } from "../../components/error";
 
 type BlogPostProps = {
@@ -24,11 +24,11 @@ const BlogPost = (props: BlogPostProps) => {
   } = useBlogPostContent({ url, s3Key: postTitle });
 
   return (
-    <div className="blog-post flex-col-center">
+    <Container sx={{ textAlign: "start" }}>
       {loading && <CircularProgress />}
       {error && <ErrorMessage />}
       <ReactMarkdown>{postContent}</ReactMarkdown>
-    </div>
+    </Container>
   );
 };
 

@@ -7,13 +7,15 @@ import {
   MAIL_ADDRESS_URL,
 } from "../../others/constants";
 import "./styles.css";
-import { FancyBox } from "../../components/fancyBox";
 import {
+  Card,
+  Container,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
+  Typography,
 } from "@mui/material";
 
 const DiscounterPrice = ({
@@ -23,20 +25,36 @@ const DiscounterPrice = ({
   oldPrice: number;
   newPrice: number;
 }) => (
-  <div className="flex-row-center">
-    <p style={{ textDecoration: "line-through" }}>{oldPrice}€</p>
-    <p style={{ paddingLeft: "1vw" }}>{newPrice}€</p>
-  </div>
+  <Container
+    sx={{
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    <Typography sx={{ textDecoration: "line-through" }}>{oldPrice}€</Typography>
+    <Typography sx={{ paddingLeft: "1vw" }}>{newPrice}€</Typography>
+  </Container>
 );
+
+const textCardSx = {
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "2vh",
+  bgcolor: "primary.light",
+};
 
 export const WorkWithMe = () => {
   const Head = () => (
-    <TableHead style={{ backgroundColor: "lightblue" }}>
-      <TableCell align="right">Type</TableCell>
-      <TableCell align="right">Number of Pages</TableCell>
-      <TableCell align="right">Max. Time Required</TableCell>
-      <TableCell align="right">Minimum Price</TableCell>
-      <TableCell align="right">Maximum Price</TableCell>
+    <TableHead sx={{ bgcolor: "primary.light" }}>
+      <TableCell align="left">Type</TableCell>
+      <TableCell align="left">Number of Pages</TableCell>
+      <TableCell align="left">Max. Time Required</TableCell>
+      <TableCell align="left">Minimum Price</TableCell>
+      <TableCell align="left">Maximum Price</TableCell>
     </TableHead>
   );
   const Body = () => (
@@ -80,15 +98,15 @@ export const WorkWithMe = () => {
     </TableBody>
   );
   return (
-    <div className="work-with-me icons flex-col-center">
+    <Container>
       <InfoItem textElement={<h1>Who am I?</h1>}>
-        <FancyBox className="flex-row-center">
+        <Card sx={textCardSx}>
           <p style={{ paddingRight: "1vw" }}>Checkout my</p>
           <Link to={LINKEDIN_URL} target={"_blank"}>
-            <LinkedIn />
+            <LinkedIn sx={{ color: "secondary.dark" }} />
           </Link>
           <p style={{ paddingLeft: "1vw" }}> for the latest copy of my CV</p>
-        </FancyBox>
+        </Card>
       </InfoItem>
       <InfoItem textElement={<h1>Grow your business with a website:</h1>}>
         <h3>Pricing:</h3>
@@ -102,31 +120,32 @@ export const WorkWithMe = () => {
         </p>
       </InfoItem>
       <InfoItem textElement={<h1>Do you want to work with me?</h1>}>
-        <FancyBox className="flex-row-center">
+        <Card sx={textCardSx}>
           <p style={{ paddingRight: "1vw" }}>Checkout what I can do on </p>
           <Link to={GITHUB_URL} target={"_blank"}>
-            <GitHub />
+            <GitHub sx={{ color: "secondary.dark" }} />
           </Link>
-        </FancyBox>
+        </Card>
+
         <div className="flex-row-center">
           <p>THEN</p>
         </div>
-        <FancyBox className="flex-row-center">
+        <Card sx={textCardSx}>
           <p style={{ paddingRight: "1vw" }}>Contact me on </p>
           <Link to={LINKEDIN_URL} target={"_blank"}>
-            <LinkedIn />
+            <LinkedIn sx={{ color: "secondary.dark" }} />
           </Link>
-        </FancyBox>
+        </Card>
         <div className="flex-row-center">
           <p>OR</p>
         </div>
-        <FancyBox className="flex-row-center">
+        <Card sx={textCardSx}>
           <p style={{ paddingRight: "1vw" }}>Contact me via email</p>
           <Link to={MAIL_ADDRESS_URL} target={"_blank"}>
-            <Mail />
+            <Mail sx={{ color: "secondary.dark" }} />
           </Link>
-        </FancyBox>
+        </Card>
       </InfoItem>
-    </div>
+    </Container>
   );
 };

@@ -1,71 +1,76 @@
+import { Button, Card, Container, Link, Typography } from "@mui/material";
 import athlete from "../../static/sport.png";
 import coding from "../../static/toqua.png";
 import traveling from "../../static/traveling.png";
 import { InfoItem } from "../infoItem";
 import "./styles.css";
 
+const infoSx = {
+  bgcolor: "secondary.light",
+  margin: "1vh",
+  padding: "2vh",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+};
+
 export const InfoWithImages = () => {
   return (
-    <div className="info-with-images row-big-col-small">
-      <InfoItem
-        textElement={
-          <div className="flex-col-center bounce-in-left">
-            <h1>Traveling</h1>
-            <p className="short-p-style">
-              Traveling gives great meaning to my life
-            </p>
-          </div>
-        }
-      >
+    <Container sx={{ display: "flex", flexDirection: "row" }}>
+      <Card className="bounce-in-left" sx={infoSx} variant="outlined">
+        <Typography variant="h4" fontWeight={"bold"}>
+          Traveling
+        </Typography>
+        <Typography>Traveling gives great meaning to my life</Typography>
         <img
           className="image-item"
           src={traveling}
           alt="random"
           style={{ maxWidth: "150px", padding: "2vh 0 3vh 0" }}
         />
-      </InfoItem>
-      <InfoItem
-        textElement={
-          <div className="flex-col-center bounce-in-top">
-            <h1>Coding</h1>
-            <p className="short-p-style">
-              Coding is my fulltime job and one of my favorites hobbies
-            </p>
-            <p className="short-p-style">
-              I work as a Software Engineer at{" "}
-              <a href="https://toqua.ai" target={"_blank"} rel="noreferrer">
-                Toqua
-              </a>
-            </p>
-          </div>
-        }
-      >
-        <a href="https://toqua.ai" target={"_blank"} rel="noreferrer">
+      </Card>
+      <Card className="bounce-in-top" sx={infoSx} variant="outlined">
+        <Typography variant="h4" fontWeight={"bold"}>
+          Coding
+        </Typography>
+        <Typography>
+          Coding is my fulltime job and one of my favorites hobbies
+        </Typography>
+        <Typography>
+          I work as a Software Engineer at{" "}
+          <Link
+            href="https://toqua.ai"
+            target={"_blank"}
+            sx={{ textDecoration: "none", color: "primary.main" }}
+          >
+            Toqua
+          </Link>
+        </Typography>
+        <Link href="https://toqua.ai" target={"_blank"}>
           <img
             className="image-item"
             src={coding}
             alt="random"
             style={{ maxWidth: "150px", padding: "2vh 0 3vh 0" }}
           />
-        </a>
-      </InfoItem>
-      <InfoItem
-        textElement={
-          <div className="flex-col-center bounce-in-right">
-            <h1>Sport</h1>
-            <p className="short-p-style">
-              I love playing sports and being phisically active
-            </p>
-          </div>
-        }
-      >
+        </Link>
+      </Card>
+      <Card className="bounce-in-right" sx={infoSx} variant="outlined">
+        <Typography variant="h4" fontWeight={"bold"}>
+          Sport
+        </Typography>
+        <Typography>
+          I love playing sports and being phisically active
+        </Typography>
         <img
           className="image-item"
           src={athlete}
           alt="random"
           style={{ maxWidth: "150px", padding: "2vh 0 3vh 0" }}
         />
-      </InfoItem>
-    </div>
+      </Card>
+    </Container>
   );
 };

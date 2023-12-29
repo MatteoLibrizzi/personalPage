@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import { useBlogPostImage } from "../../hooks/useBlogPostImagesContent";
-import { FancyBox } from "../fancyBox";
 import "./styles.css";
-import { CircularProgress } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  CircularProgress,
+  Container,
+  Typography,
+} from "@mui/material";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 
 interface BlogPostItemProps {
   posts3Key: string;
@@ -33,30 +41,59 @@ export const BlogPostItem = (props: BlogPostItemProps) => {
   );
 
   return (
-    <div className="blog-post-item">
-      {loadingImage && <CircularProgress />}
-      {image && (
-        <img
-          src={image}
-          alt={displayTitle}
-          style={{
-            maxWidth: "150px",
-            maxHeight: "200px",
-            paddingRight: "10vw",
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "5vh",
+      }}
+    >
+      <Card
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "80%",
+          bgcolor: "secondary.light",
+        }}
+      >
+        <CardMedia sx={{ padding: "3vh" }}>
+          {loadingImage && <CircularProgress />}
+          {image && (
+            <img
+              src={image}
+              alt={displayTitle}
+              style={{
+                maxWidth: "400px",
+                maxHeight: "400px",
+                paddingRight: "10vw",
+              }}
+            />
+          )}
+        </CardMedia>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "2vh",
           }}
-        />
-      )}
-      <FancyBox className={left ? 'bounce-in-left' : 'bounce-in-right'}>
-        <div className="flex-col-center" style={{ padding: "5vh" }}>
+        >
           <Link
             to={`/blog/post/${blogType}/${posts3Key}`}
             style={{ textDecoration: "none" }}
           >
-            <h3 style={{ color: "black" }}>{displayTitle}</h3>
+            <Button variant="contained">
+              <AutoStoriesIcon sx={{ paddingRight: "1vw" }} />
+              {displayTitle}
+            </Button>
           </Link>
-          <p style={{ color: "gray" }}>{date}</p>
-        </div>
-      </FancyBox>
-    </div>
+          <Typography>{date}</Typography>
+        </CardContent>
+      </Card>
+    </Container>
   );
 };

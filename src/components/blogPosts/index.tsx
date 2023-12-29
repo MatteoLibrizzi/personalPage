@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Container } from "@mui/material";
 import { useBlogPostsTitles } from "../../hooks/useBlogPostsTitles";
 import { BlogPostItem } from "../blogPostItem";
 import "./styles.css";
@@ -16,9 +16,18 @@ export const BlogPosts = ({ url, blogType }: BlogPostsProps) => {
   } = useBlogPostsTitles(url);
 
   return (
-    <div className="blog-posts flex-col-center">
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "5vh",
+        padding: "5vh",
+      }}
+    >
       {loadingTitles && <CircularProgress />}
-      {errorTitles && <p>Something went wrong</p>}
+      {errorTitles && !titles && <p>Something went wrong</p>}
       {titles &&
         titles
           .sort((a, b) => b.localeCompare(a))
@@ -31,6 +40,6 @@ export const BlogPosts = ({ url, blogType }: BlogPostsProps) => {
               left={index % 2 === 0}
             />
           ))}
-    </div>
+    </Container>
   );
 };

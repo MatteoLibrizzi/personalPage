@@ -1,12 +1,27 @@
+import { Box, Card, CardContent, Typography } from "@mui/material";
 import "./styles.css";
 
 export const PersonalIntroduction = () => {
   return (
-    <div className="personal-introduction">
-      <h1 className="name">Matteo Librizzi</h1>
-      <p className="description">
-        My name is Matteo. I'm 22 years old and I'm currently living in Gent, Belgium.
-      </p>
-    </div>
+    <Card sx={{ bgcolor: "secondary.light", margin: "1vh" }} variant="outlined">
+      <CardContent>
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          gap={2}
+          paddingTop={2}
+        >
+          <Typography variant="h4" fontWeight={"bold"}>
+            Matteo Librizzi
+          </Typography>
+          <Typography>
+            My name is Matteo. I'm 22 years old and I'm currently living in
+            Gent, Belgium.
+          </Typography>
+        </Box>
+      </CardContent>
+    </Card>
   );
 };
