@@ -15,13 +15,24 @@ import { Link } from "react-router-dom";
 const cardSx = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
+  justifyContent: "space-between",
   alignItems: "center",
   textAlign: "center",
   bgcolor: "secondary.light",
   gap: "1vh",
   padding: "2vh",
   width: "20vw",
+  height: "180px",
+};
+
+const buttonSx = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "1vh",
+  padding: "1vh",
+  width: "180px",
 };
 
 export const PagesPresentation = () => {
@@ -35,7 +46,7 @@ export const PagesPresentation = () => {
       <Container
         sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: { sm: "column", md: "row" },
           alignItems: "center",
           justifyContent: "center",
           gap: "2vw",
@@ -46,8 +57,11 @@ export const PagesPresentation = () => {
             If you want to learn more about my travels and personal life, visit
             my personal blog
           </Typography>
-          <Link to={`${BLOG_LINK}/${PERSONAL_BLOG_SUFFIX}`}>
-            <Button variant="contained" sx={{ gap: "1vw" }}>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={`${BLOG_LINK}/${PERSONAL_BLOG_SUFFIX}`}
+          >
+            <Button variant="contained" sx={buttonSx}>
               <PersonIcon />
               <Typography>Personal Blog</Typography>
             </Button>
@@ -58,8 +72,11 @@ export const PagesPresentation = () => {
             If you want to learn more about my coding experience, visit my tech
             blog
           </Typography>
-          <Link to={`${BLOG_LINK}/${TECH_BLOG_SUFFIX}`}>
-            <Button variant="contained" sx={{ gap: "1vw" }}>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={`${BLOG_LINK}/${TECH_BLOG_SUFFIX}`}
+          >
+            <Button variant="contained" sx={buttonSx}>
               <DeviceHubIcon />
               <Typography>Tech Blog</Typography>
             </Button>
@@ -70,8 +87,8 @@ export const PagesPresentation = () => {
             If you might be interested in working with me, visit my professional
             infomation page
           </Typography>
-          <Link to={`${WORK_WITH_ME_LINK}`}>
-            <Button variant="contained" sx={{ gap: "1vw" }}>
+          <Link style={{ textDecoration: "none" }} to={`${WORK_WITH_ME_LINK}`}>
+            <Button variant="contained" sx={buttonSx}>
               <SyncAltIcon />
               <Typography>Work With Me</Typography>
             </Button>

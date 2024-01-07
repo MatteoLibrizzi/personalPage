@@ -17,7 +17,9 @@ const infoSx = {
 
 export const InfoWithImages = () => {
   return (
-    <Container sx={{ display: "flex", flexDirection: "row" }}>
+    <Container
+      sx={{ display: "flex", flexDirection: { sm: "column", md: "row" } }}
+    >
       <Card className="bounce-in-left" sx={infoSx} variant="outlined">
         <Typography variant="h4" fontWeight={"bold"}>
           Traveling
