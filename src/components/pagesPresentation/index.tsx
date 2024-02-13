@@ -19,8 +19,6 @@ const cardSx = {
 	'box-shadow': '0px 0px 0px 0px',
 	gap: '1vh',
 	padding: '2vh',
-	width: '20vw',
-	height: '180px',
 }
 
 const buttonSx = {
@@ -49,7 +47,7 @@ export const PagesPresentation = () => {
 			<Container
 				sx={{
 					display: 'flex',
-					flexDirection: { xs: 'column', sm: 'column', md: 'row' },
+					flexDirection: { xs: 'column', sm: 'row', md: 'row' },
 					alignItems: 'center',
 					justifyContent: 'space-evenly',
 					gap: '2vw',

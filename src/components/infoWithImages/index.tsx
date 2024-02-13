@@ -26,7 +26,7 @@ export const InfoWithImages = () => {
 				flexDirection: { xs: 'column', sm: 'column', md: 'row' },
 				justifyContent: 'space-around',
 				margin: 0,
-				alignItems: 'start',
+				alignItems: {xs: 'center', sm: 'center', md: 'start'},
 			}}>
 			<Card className='bounce-in-left' sx={infoSx}>
 				<Typography variant='h4' fontWeight={'bold'}>
