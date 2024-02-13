@@ -24,6 +24,7 @@ export const BlogPosts = ({ url, blogType }: BlogPostsProps) => {
         alignItems: "center",
         gap: "5vh",
         padding: "5vh",
+        width: "100%",
       }}
     >
       {loadingTitles && <CircularProgress />}
