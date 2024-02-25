@@ -20,13 +20,13 @@ const infoSx = {
 export const InfoWithImages = () => {
 	return (
 		<Container
-			maxWidth='xl'
+			maxWidth={false}
 			sx={{
 				display: 'flex',
 				flexDirection: { xs: 'column', sm: 'column', md: 'row' },
-				justifyContent: 'space-around',
+				justifyContent: 'center',
 				margin: 0,
-				alignItems: {xs: 'center', sm: 'center', md: 'start'},
+				alignItems: 'center',
 			}}>
 			<Card className='bounce-in-left' sx={infoSx}>
 				<Typography variant='h4' fontWeight={'bold'}>
